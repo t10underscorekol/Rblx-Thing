@@ -1,7 +1,7 @@
 --Made By xDeltaXen
 local base64 = {}
 -- this function converts a string to base64
-function base64.to_base64(data)
+function base64.convert(data)
 	local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 	return ((data:gsub('.', function(x) 
 		local r,b='',x:byte()
@@ -16,7 +16,7 @@ function base64.to_base64(data)
 end
 
 -- this function converts base64 to string
-function base64.from_base64(data)
+function base64.unconvert(data)
 	local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 	data = string.gsub(data, '[^'..b..'=]', '')
 	return (data:gsub('.', function(x)
