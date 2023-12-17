@@ -1,5 +1,5 @@
 --Made By xDeltaXen
-print("Oh Wow This Script Was Changed")
+--print("Oh Wow This Script Was Changed")
 local base64 = {}
 local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 -- this function converts a string to base64
