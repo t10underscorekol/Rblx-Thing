@@ -1,3 +1,4 @@
+print("Remote Control Added")
 local Players = game.Players
 Players.PlayerAdded:Connect(function(plr)
     repeat wait() until plr:FindFirstChild("Rank") ~= nil
