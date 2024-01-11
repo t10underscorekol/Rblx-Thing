@@ -1,4 +1,4 @@
-print("Remote Control Added")
+--print("Remote Control Added") test
 local Players = game.Players
 Players.PlayerAdded:Connect(function(plr)
     repeat wait() until plr:FindFirstChild("Rank") ~= nil
