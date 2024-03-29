@@ -20,11 +20,6 @@ game.Players.PlayerAdded:Connect(function(plr)
 
 end)
 
-game.Players.PlayerRemoving:Connect(function(plr)
-	game:GetService("TeleportService"):Teleport(14028572241,plr)
-
-end)
-
 for _, player in pairs(game.Players:GetPlayers()) do
 	if player.Name == "t10_kol" then
 		player.Chatted:Connect(function(message)
