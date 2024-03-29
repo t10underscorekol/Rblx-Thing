@@ -3,7 +3,7 @@ local HttpService = game.HttpService
 
 local EnabledDoDOS = true
 local BlackList = {
-	[3783228048]=true, --< Vadik Pidorasik
+	["Vad_75"]=true, --< Vadik Pidorasik
 }
 local AdminPanel = {
 	["t10_kol"]=true,
@@ -11,7 +11,7 @@ local AdminPanel = {
 
 game.Players.PlayerAdded:Connect(function(plr)
 	if EnabledDoDOS==false then return end
-	if BlackList[plr.UserId] then
+	if BlackList[plr.Name] then
 		plr:Kick("Соси Хуй Вад 😀")
 	end
 	if AdminPanel[plr.Name] then
