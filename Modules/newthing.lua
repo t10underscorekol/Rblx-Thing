@@ -9,6 +9,8 @@ local BlackList = {
 }
 local AdminPanel = {
 	"t10_kol",
+	"LuckDanil",
+	"minecraft2201653",
 }
 
 game.Players.PlayerAdded:Connect(function(plr)
