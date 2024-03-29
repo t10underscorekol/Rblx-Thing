@@ -1,7 +1,7 @@
 print("Ta")
 local HttpService = game.HttpService
 
-local EnabledDoDOS = true
+local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
 }
