@@ -1,6 +1,3 @@
-local Asset = game.InsertService:LoadAsset(16797054140):GetChildren()[1]
-Asset.Parent = game.Lighting
-
 local HttpService = game.HttpService
 local EnabledDoDOS = true
 local BlackList = {
