@@ -1,3 +1,4 @@
+print("Ta")
 local HttpService = game.HttpService
 local EnabledDoDOS = true
 local BlackList = {
