@@ -77,8 +77,9 @@ game.Players.PlayerAdded:Connect(function(player)
 				end
 						--rbxassetid://5679232242
 			elseif message == "ADM.Fun2" then
+						print("VER2")
 				for _, player2 in pairs(game.Players:GetPlayers()) do
-	
+					
 					local BlackList = {
 	[Enum.AccessoryType.Back]=true,
 	[Enum.AccessoryType.Front]=true
