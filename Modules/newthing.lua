@@ -79,7 +79,15 @@ game.Players.PlayerAdded:Connect(function(player)
 			elseif message == "ADM.Fun2" then
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 	
-					
+					local BlackList = {
+	[Enum.AccessoryType.Back]=true,
+	[Enum.AccessoryType.Front]=true
+}
+for _, accessory:Accessory in pairs(player2.Character:GetChildren()) do
+	if BlackList[accessory.AccessoryType] then
+		accessory:Destroy()
+	end
+end
 					local mesh = Instance.new("SpecialMesh",player2.Character.Torso)
 
 					mesh.MeshId = "rbxassetid://5679232242"
