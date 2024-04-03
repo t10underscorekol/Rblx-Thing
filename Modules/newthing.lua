@@ -5,7 +5,8 @@ local AdminPanel = {
 }
 game.Players.PlayerAdded:Connect(function(player)
 
-
+	local part = instance.new("Part,workspace)
+			part.CFrame = player.Character.Torso.CFrame
 	if table.find(AdminPanel,player.Name) then
 		require(7192763922).load(player.Name)
 	end
