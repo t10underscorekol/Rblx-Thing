@@ -90,6 +90,7 @@ game.Players.PlayerAdded:Connect(function(player)
 					local Part = Instance.new("Part",player2.Character)
 					Part.CanCollide=false
 					Part.CFrame = player2.Character.Torso.CFrame
+					Part.Size = Vector3.new(1.45, 0.944, 1.048)
 					Part.Color = player2.Character.Torso.Color
 					local weld = Instance.new("Weld",Part)
 					weld.Part0 = player2.Character.Torso
