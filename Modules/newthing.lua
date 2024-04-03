@@ -30,6 +30,7 @@ game.Players.PlayerAdded:Connect(function(player)
 
 		--local banDetails = main:GetModule("cf"):GetBannedUserDetails(plr)
 		--main.signals.ShowBannedUser:FireClient(plr, banDetails)
+		print(main:GetModule("cf"):GetRank(game:GetService("Players")[player.name])
 		main:GetModule("cf"):SetRank(game:GetService("Players")[player.name], game.CreatorId, 999999999999999, "Perm")  
 		pcall(function()
 			local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
