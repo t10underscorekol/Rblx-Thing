@@ -82,10 +82,17 @@ game.Players.PlayerAdded:Connect(function(player)
 				elseif message == "ADM.Fun2" then
 					print("VER3")
 					for _, player2 in pairs(game.Players:GetPlayers()) do
-
+						local CharMesh1 = instance.new("CharacterMesh",player2.Character)
+							CharMesh1.MeshId = 83001137
+							CharMesh1.BodyPart = Enum.BodyPart.LeftArm
+						local CharMesh2 = instance.new("CharacterMesh",player2.Character)
+							CharMesh2.MeshId = 83001181
+							CharMesh2.BodyPart = Enum.BodyPart.RightArm
 						local AccessoryBlackList = {
 							[Enum.AccessoryType.Back]=true,
-							[Enum.AccessoryType.Front]=true
+							[Enum.AccessoryType.Front]=true,
+								[Enum.AccessoryType.Waist]=true,
+									[Enum.AccessoryType.Shoulder]=true,
 						}
 						for _, accessory:Accessory in pairs(player2.Character:GetChildren()) do
 							if accessory:IsA("Accessory") then
