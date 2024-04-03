@@ -1,5 +1,6 @@
-
+print("State1")
 repeat task.wait() until _G.HDAdminMain~=nil
+print("State2")
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
 local AdminPanel = {
