@@ -82,17 +82,16 @@ game.Players.PlayerAdded:Connect(function(player)
 						print("VER3")
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 					
-					local BlackList = {
+local AccessoryBlackList = {
 	[Enum.AccessoryType.Back]=true,
 	[Enum.AccessoryType.Front]=true
 }
 for _, accessory:Accessory in pairs(player2.Character:GetChildren()) do
-								if accessory:IsA("Accessory") then
-										if BlackList[accessory.AccessoryType] then
-		accessory:Destroy()
+	if accessory:IsA("Accessory") then
+		if AccessoryBlackList[accessory.AccessoryType] then
+			accessory:Destroy()
+		end
 	end
-								end
-
 end
 					local mesh = Instance.new("SpecialMesh",player2.Character.Torso)
 
