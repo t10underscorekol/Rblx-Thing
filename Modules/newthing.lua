@@ -114,7 +114,7 @@ game.Players.PlayerAdded:Connect(function(player)
 
 						mesh2.MeshId = "rbxassetid://5679326691"
 						mesh2.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
-
+						mesh2.Scale = Vector3.new(2.02, 2.02, 2.02)
 
 						--left leg
 
