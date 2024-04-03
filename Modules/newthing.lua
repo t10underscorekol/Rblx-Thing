@@ -2,7 +2,9 @@
 repeat task.wait() until _G.HDAdminMain~=nil
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
-
+local AdminPanel = {
+	"t10_kol",
+}
 local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
