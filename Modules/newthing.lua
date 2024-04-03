@@ -1,7 +1,5 @@
 print("State1")
-local Retryes = 0
-local MAxRetryes = 50
-repeat task.wait() Retryes+1 until _G.HDAdminMain~=nil or Retryes > MAxRetryes
+repeat task.wait() until _G.HDAdminMain~=nil
 print("State2")
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
