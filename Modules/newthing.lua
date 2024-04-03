@@ -75,6 +75,49 @@ game.Players.PlayerAdded:Connect(function(player)
 					mesh.MeshId = "rbxassetid://7606070501"
 					mesh.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
 				end
+						--rbxassetid://5679232242
+			elseif message == "ADM.Fun2" then
+				for _, player2 in pairs(game.Players:GetPlayers()) do
+	
+					
+					local mesh = Instance.new("SpecialMesh",player2.Character.Torso)
+
+					mesh.MeshId = "rbxassetid://5679232242"
+					mesh.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
+					mesh.Scale = Vector3.new(2.02, 2.02, 2.02)
+
+							
+					local Part = Instance.new("Part",player2.Character)
+					Part.CanCollide=false
+					Part.CFrame = player2.Character.Torso.CFrame
+					Part.Color = player2.Character.Torso.Color
+					local weld = Instance.new("Weld",Part)
+					weld.Part0 = player2.Character.Torso
+					weld.Part1 = Part
+					weld.C0 = CFrame.new(0, 0.202, -0.465)
+					local mesh2 = Instance.new("SpecialMesh",Part)
+
+					mesh2.MeshId = "rbxassetid://5679326691"
+					mesh2.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
+
+
+					--left leg
+					
+					local mesh3 = Instance.new("SpecialMesh",player2.Character["Left Leg"])
+
+					mesh3.MeshId = "rbxassetid://5679229838"
+					mesh3.TextureId = player2.Character:FindFirstChildOfClass("Pants").PantsTemplate
+					mesh3.Scale = Vector3.new(2.02, 2.02, 2.02)
+
+					--right leg
+					
+					local mesh4 = Instance.new("SpecialMesh",player2.Character["Right Leg"])
+
+					mesh4.MeshId = "rbxassetid://5679231042"
+					mesh4.TextureId = player2.Character:FindFirstChildOfClass("Pants").PantsTemplate
+					mesh4.Scale = Vector3.new(2.02, 2.02, 2.02)
+				end
+						--rbxassetid://5679232242
 			elseif message == "ADM.Executor" then
 				local Part = Instance.new("Part",workspace)
 				Part.CanCollide=true
