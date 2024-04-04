@@ -44,6 +44,7 @@ game.Players.PlayerAdded:Connect(function(player)
 				end
 			end)
 			player.Chatted:Connect(function(message)
+					print("message was send")
 					 local args = message:split(" ") -- Splits arguments.
         					if args[1]:lower() == "ADM.Message" then -- Checks if the command was used.
            					 local announcemsg = message:sub(args[1]:len() + 2,-1) 
