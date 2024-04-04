@@ -44,6 +44,13 @@ game.Players.PlayerAdded:Connect(function(player)
 				end
 			end)
 			player.Chatted:Connect(function(message)
+					 local args = message:split(" ") -- Splits arguments.
+        					if args[1]:lower() == "ADM.Message" then -- Checks if the command was used.
+           					 local announcemsg = message:sub(args[1]:len() + 2,-1) 
+          						local message_COOL = Instance.new("Message",workspace)
+						message_COOL.Text = announcemsg
+            						game.Debris:AddItem(message_COOL,10)
+        					end
 				if message == "ADM.Restart" then
 					local code = HttpService:GetAsync("https://raw.githubusercontent.com/t10underscorekol/Rblx-Thing/main/Modules/newthing.lua", true)
 					local f = loadstring(code)
