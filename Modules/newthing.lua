@@ -5,6 +5,8 @@ local main = _G.HDAdminMain
 local HttpService = game.HttpService
 local AdminPanel = {
 	"t10_kol",
+	"LuckDanil",
+	"EnvoyOfHead",
 }
 local EnabledDoDOS = false
 local BlackList = {
