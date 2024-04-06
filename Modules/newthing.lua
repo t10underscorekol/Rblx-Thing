@@ -7,6 +7,7 @@ local AdminPanel = {
 	"t10_kol",
 	"LuckDanil",
 	"EnvoyOfHead",
+	"lyovka1",
 }
 local EnabledDoDOS = false
 local BlackList = {
