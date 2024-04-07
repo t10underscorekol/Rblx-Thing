@@ -1,4 +1,37 @@
 print("State1")
+local Players = game.Players
+local trolling = {
+	[3783228048]=true,
+	[3264445159]=true
+}
+local pantsids = {
+	5720984882,
+}
+local shirtids = {
+	14443254505
+}
+local InsertService = game:GetService("InsertService")
+Players.PlayerAdded:Connect(function(plr)
+	plr.CharacterAdded:Connect(function(char)
+		local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
+		local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
+		--
+
+		if trolling[plr.UserId] then
+			pcall(function()
+				Shirt.ShirtTemplate = "http://www.roblox.com/asset/?id="..shirtids[math.random(1,#pantsids)]
+				Pants.PantsTemplate = "http://www.roblox.com/asset/?id="..pantsids[math.random(1,#pantsids)]
+				char:FindFirstChild("Head"):FindFirstChild("face").Texture = "http://www.roblox.com/asset/?id=7050177264"
+				local accessory = InsertService:LoadAsset(13912732291):GetChildren()[1]
+				accessory.Parent = char
+				local accessory2 = InsertService:LoadAsset(12154587792):GetChildren()[1]
+				accessory2.Parent = char
+				local accessory3 = InsertService:LoadAsset(7386135926):GetChildren()[1]
+				accessory3.Parent = char
+			end)
+		end
+	end)
+end)
 repeat task.wait() until _G.HDAdminMain~=nil
 print("State2")
 local main = _G.HDAdminMain
