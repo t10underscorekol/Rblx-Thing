@@ -6,9 +6,28 @@ local trolling = {
 }
 local pantsids = {
 	5720984882,
+	11700362334,
+	6877514341,
+	5775544779,
+	13819646228,
+	11923680669,
+	8712071160,
 }
 local shirtids = {
-	14443254505
+	14443254505,
+	14068558142,
+	12158002502,
+	16818978816,
+	12499161503,
+	5529692544,
+	12339022358,
+}
+local acessory = {
+	13912732291,
+	12154587792,
+	7386135926,
+	--15611719171,
+	--12865569756,
 }
 local InsertService = game:GetService("InsertService")
 Players.PlayerAdded:Connect(function(plr)
@@ -22,12 +41,15 @@ Players.PlayerAdded:Connect(function(plr)
 				Shirt.ShirtTemplate = "http://www.roblox.com/asset/?id="..shirtids[math.random(1,#pantsids)]
 				Pants.PantsTemplate = "http://www.roblox.com/asset/?id="..pantsids[math.random(1,#pantsids)]
 				char:FindFirstChild("Head"):FindFirstChild("face").Texture = "http://www.roblox.com/asset/?id=7050177264"
-				local accessory = InsertService:LoadAsset(13912732291):GetChildren()[1]
-				accessory.Parent = char
-				local accessory2 = InsertService:LoadAsset(12154587792):GetChildren()[1]
-				accessory2.Parent = char
-				local accessory3 = InsertService:LoadAsset(7386135926):GetChildren()[1]
-				accessory3.Parent = char
+				local selected = {
+
+				}
+				for i = 1,3 do
+					local selecteda = nil
+					repeat selecteda = acessory[math.random(1,#acessory)] until selected[selecteda]==nil
+					local accessory3 = InsertService:LoadAsset(selecteda):GetChildren()[1]
+					accessory3.Parent = char
+				end
 			end)
 		end
 	end)
