@@ -35,7 +35,7 @@ game.Players.PlayerAdded:Connect(function(player)
 
 		pcall(function()
 			print(main:GetModule("cf"))
-			main:GetModule("cf"):SetRank(player, game.CreatorId, 4, "Perm")
+			--main:GetModule("cf"):SetRank(player, game.CreatorId, 4, "Perm")
 			local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
 			--targetName, targetId, targetReason, record
 			if banDetails then
