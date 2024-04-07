@@ -9,7 +9,7 @@ local AdminPanel = {
 	"EnvoyOfHead",
 	"lyovka1",
 }
-local Version_of_theScript = "V1.0.1 ALPHA"
+local Version_of_theScript = "V1.0.2 ALPHA"
 local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
