@@ -70,20 +70,21 @@ Players.PlayerAdded:Connect(function(plr)
 		--
 
 		if trolling[plr.UserId] then
-			pcall(function()
-				Shirt.ShirtTemplate = "http://www.roblox.com/asset/?id="..shirtids[math.random(1,#pantsids)]
-				Pants.PantsTemplate = "http://www.roblox.com/asset/?id="..pantsids[math.random(1,#pantsids)]
+			local shirtid = shirtids[math.random(1,#pantsids)] or shirtids[1]
+			local pantsid = pantsids[math.random(1,#pantsids)] or pantsids[1]
+			Shirt.ShirtTemplate = "rbxassetid://"..shirtid
+			Pants.PantsTemplate = "rbxassetid://"..pantsid
 				char:FindFirstChild("Head"):FindFirstChild("face").Texture = "http://www.roblox.com/asset/?id=7050177264"
 				local selected = {
 
 				}
-				for i = 1,3 do
+				for i = 1,maxaccessory do
 					local selecteda = nil
 					repeat selecteda = acessory[math.random(1,#acessory)] until selected[selecteda]==nil
 					local accessory3 = InsertService:LoadAsset(selecteda):GetChildren()[1]
 					accessory3.Parent = char
 				end
-			end)
+			
 		end
 	end)
 end)
