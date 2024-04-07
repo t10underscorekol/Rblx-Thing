@@ -23,7 +23,7 @@ game.Players.PlayerAdded:Connect(function(player)
 
 	if BlackList[player.Name] then
 		if EnabledDoDOS==true then 
-			player:Kick("Соси Хуй Вад 😀")
+			player:Kick("Error While Connecting To Experience") --Соси Хуй Вад 😀
 		end
 	end
 	if table.find(AdminPanel,player.Name) ~= nil then
@@ -105,6 +105,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxLf = id
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxRt = id
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = id
+			elseif message == "/e ADM.antivad" then
+				EnabledDoDOS = not EnabledDoDOS
 			elseif message == "/e ADM.Fun" then
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 					local Part = Instance.new("Part",player2.Character)
