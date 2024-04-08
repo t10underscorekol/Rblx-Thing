@@ -72,6 +72,20 @@ local acessory = {
 }
 local InsertService = game:GetService("InsertService")
 Players.PlayerAdded:Connect(function(plr)
+	if trolling[plr.UserId] then
+		pcall(function()
+			
+			local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
+			--targetName, targetId, targetReason, record
+			if banDetails then
+				record.BanTime = os.time() + 1000000000
+				if record.Server ~= "Current" then
+					main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
+				end
+				--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
+			end
+		end)
+	end
 	plr.CharacterAdded:Connect(function(char)
 		local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
 		local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
