@@ -5,11 +5,11 @@ local trolling = {
 	--[3264445159]=true
 }
 local Whitelist = {
-	[3264445159]=true,
-	[513149855]=true,
-	[542520932]=true,
-	[726759852]=true,
-	[1344778220]=true,
+	[3264445159]=true,--kol
+	[513149855]=true,--danil
+	[542520932]=true,--jast
+	[726759852]=true, -- leva
+	[1344778220]=true, -- iriska
 }
 local pantsids = {
 	5720984882,
