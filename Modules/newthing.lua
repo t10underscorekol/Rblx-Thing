@@ -110,7 +110,7 @@ local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
 		if wellwellwell==true then 
-			player:Kick("Experience Was Restricted.") 
+			player:Kick("Experience Was Restricted. https://discord.gg/tetGnntmjW") 
 		end
 
 	if BlackList[player.Name] then
