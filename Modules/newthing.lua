@@ -106,9 +106,12 @@ local BlackList = {
 local LagEnabled = false
 local LagObjcets = {
 }
+local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
-
+		if wellwellwell==true then 
+			player:Kick("Experience Was Restricted.") 
+		end
 
 	if BlackList[player.Name] then
 		if EnabledDoDOS==true then 
