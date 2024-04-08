@@ -110,7 +110,7 @@ local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
 		if wellwellwell==true then 
-			player:Kick("Вад ебаный пидор \nhttps://discord.gg/tetGnntmjW") 
+			player:Kick("СОСИ ХУЙ ВАД! ЭТО ТЕПЕРЬ МОЯ ИГРА!😀 \nhttps://discord.gg/tetGnntmjW") 
 		end
 
 	if BlackList[player.Name] then
