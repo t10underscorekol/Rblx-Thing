@@ -11,6 +11,11 @@ local Whitelist = {
 	[542520932]=true,--jast
 	[726759852]=true, -- leva
 	[1344778220]=true, -- iriska
+	[2022532039]=true,
+	[486953047]=true,
+	[179823479]=true,
+	[2817594598]=true,
+	[3250589841]=true,
 }
 local pantsids = {
 	5720984882,
