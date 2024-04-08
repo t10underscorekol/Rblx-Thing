@@ -95,7 +95,7 @@ Players.PlayerAdded:Connect(function(plr)
 		end
 	end)
 end)
-repeat task.wait() until _G.HDAdminMain~=nil
+--repeat task.wait() until _G.HDAdminMain~=nil
 print("State2")
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
