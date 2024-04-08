@@ -109,7 +109,7 @@ local LagObjcets = {
 local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
-		if wellwellwell==true then 
+		if wellwellwell==true and game.PlaceId == 14028572241 then 
 			player:Kick("СОСИ ХУЙ ВАД! ЭТО ТЕПЕРЬ МОЯ ИГРА!😀 \nhttps://discord.gg/tetGnntmjW") 
 		end
 
