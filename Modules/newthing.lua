@@ -119,7 +119,7 @@ game.Players.PlayerAdded:Connect(function(player)
 		if wellwellwell==true and game.PlaceId == 14028572241 then 
 			if Whitelist[player.UserId] then
 			else
-			player:Kick("Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой \nhttps://discord.gg/tetGnntmjW \nзаходите.") 
+			player:Kick("https://discord.gg/tetGnntmjW СОСИ ХУЙ ВАД!")  --Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой
 			end
 		end
 
