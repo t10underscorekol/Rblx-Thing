@@ -2,6 +2,7 @@ print("State1")
 local Players = game.Players
 local trolling = {
 	[3783228048]=true,
+	[461265636]=true,
 	--[3264445159]=true
 }
 local Whitelist = {
