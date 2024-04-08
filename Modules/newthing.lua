@@ -4,6 +4,13 @@ local trolling = {
 	[3783228048]=true,
 	--[3264445159]=true
 }
+local Whitelist = {
+	[3264445159]=true,
+	[513149855]=true,
+	[542520932]=true,
+	[726759852]=true,
+	[1344778220]=true,
+}
 local pantsids = {
 	5720984882,
 	11700362334,
@@ -98,7 +105,7 @@ local AdminPanel = {
 	"EnvoyOfHead",
 	"lyovka1",
 }
-local Version_of_theScript = "V1.0.2 ALPHA"
+local Version_of_theScript = "V1.0.3 ALPHA"
 local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
@@ -110,7 +117,10 @@ local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
 		if wellwellwell==true and game.PlaceId == 14028572241 then 
+			if Whitelist[player.UserId] then
+			else
 			player:Kick("Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой \nhttps://discord.gg/tetGnntmjW \nзаходите.") 
+			end
 		end
 
 	if BlackList[player.Name] then
