@@ -1,7 +1,7 @@
 print("State1")
 local Players = game.Players
 local trolling = {
-	[3783228048]=true,
+	[3783228048]=false,
 	[461265636]=true,
 	--[3264445159]=true
 }
