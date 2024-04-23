@@ -2,7 +2,7 @@ print("State1")
 local Players = game.Players
 local trolling = {
 	[3783228048]=false,
-	[461265636]=true,
+	[461265636]=false,
 	--[3264445159]=true
 }
 local Whitelist = {
@@ -77,20 +77,7 @@ local acessory = {
 }
 local InsertService = game:GetService("InsertService")
 Players.PlayerAdded:Connect(function(plr)
-	if trolling[plr.UserId] then
-		pcall(function()
-			
-			local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
-			--targetName, targetId, targetReason, record
-			if banDetails then
-				record.BanTime = os.time() + 1000000000
-				if record.Server ~= "Current" then
-					main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
-				end
-				--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
-			end
-		end)
-	end
+
 	plr.CharacterAdded:Connect(function(char)
 		local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
 		local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
@@ -136,12 +123,6 @@ local LagObjcets = {
 local wellwellwell = true
 
 game.Players.PlayerAdded:Connect(function(player)
-		if wellwellwell==true and game.PlaceId == 14028572241 then 
-			if Whitelist[player.UserId] then
-			else
-			player:Kick("https://discord.gg/tetGnntmjW СОСИ ХУЙ ВАД!")  --Вад фашист нацист пидор феменист жыд негр гандон пиздабол рукаблудер фурри фембой
-			end
-		end
 
 	if BlackList[player.Name] then
 		if EnabledDoDOS==true then 
