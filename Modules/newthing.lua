@@ -174,7 +174,7 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				if record.Server ~= "Current" then
 					main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
 				end
-				--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
+				--main:GetModule("cf"):FormatAndFireNotice(game.CreatorId, "UnBanSuccess", banDetails[1])
 			end
 		end)
 		pcall(function()
