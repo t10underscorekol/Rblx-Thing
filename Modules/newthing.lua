@@ -1,4 +1,3 @@
-print("Fine.")
 local Players = game.Players
 local trolling = {
 	[3783228048]=false,
