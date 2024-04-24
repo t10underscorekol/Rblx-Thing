@@ -1,4 +1,4 @@
-print("State1")
+
 local Players = game.Players
 local trolling = {
 	[3783228048]=false,
@@ -103,7 +103,7 @@ Players.PlayerAdded:Connect(function(plr)
 	end)
 end)
 --repeat task.wait() until _G.HDAdminMain~=nil
-print("State2")
+
 local main = _G.HDAdminMain
 local HttpService = game.HttpService
 local AdminPanel = {
