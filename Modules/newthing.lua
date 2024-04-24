@@ -177,6 +177,18 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
 			end
 		end)
+		pcall(function()
+							local plrArg = player
+		local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(plrArg)
+		--targetName, targetId, targetReason, record
+		if banDetails then
+			record.BanTime = os.time()
+			if record.Server ~= "Current" then
+				main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
+			end
+			main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
+		end
+		end)
 		player.Chatted:Connect(function(message)
 			print("message was send")
 			local args = message:split(" ") -- Splits arguments.
