@@ -164,19 +164,7 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 		--main.signals.ShowBannedUser:FireClient(plr, banDetails)
 
 
-		pcall(function()
-			print(main:GetModule("cf"))
-			--main:GetModule("cf"):SetRank(player, game.CreatorId, 4, "Perm")
-			local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
-			--targetName, targetId, targetReason, record
-			if banDetails then
-				record.BanTime = os.time()
-				if record.Server ~= "Current" then
-					main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
-				end
-				--main:GetModule("cf"):FormatAndFireNotice(game.CreatorId, "UnBanSuccess", banDetails[1])
-			end
-		end)
+
 		pcall(function()
 							local plrArg = player
 		local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(plrArg)
@@ -186,7 +174,7 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 			if record.Server ~= "Current" then
 				main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
 			end
-			main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
+			main:GetModule("cf"):FormatAndFireNotice(game.CreatorId, "UnBanSuccess", banDetails[1])
 		end
 		end)
 		player.Chatted:Connect(function(message)
