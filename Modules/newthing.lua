@@ -165,7 +165,7 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 
 
 
-	repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(plr.Name)
+	repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
 		--targetName, targetId, targetReason, record
 		if banDetails then
 			record.BanTime = os.time()
