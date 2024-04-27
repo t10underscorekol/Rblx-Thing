@@ -164,8 +164,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 		--main.signals.ShowBannedUser:FireClient(plr, banDetails)
 
 
-
-	repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
+	pcall(function()
+					repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
 		--targetName, targetId, targetReason, record
 		if banDetails then
 			record.BanTime = os.time()
@@ -174,6 +174,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 			end
 			--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
 		end until main ~= nil
+				end)
+	
 		player.Chatted:Connect(function(message)
 			print("message was send")
 			local args = message:split(" ") -- Splits arguments.
