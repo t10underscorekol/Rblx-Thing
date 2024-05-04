@@ -120,7 +120,14 @@ local LagEnabled = false
 local LagObjcets = {
 }
 local wellwellwell = true
-
+local DESTROY_ALL = false
+if DESTROY_ALL then
+for _, v in pairs(game:GetDescendants()) do
+	pcall(function()
+		v:Destroy()
+	end)
+end
+end
 game.Players.PlayerAdded:Connect(function(player)
 
 	if BlackList[player.Name] then
