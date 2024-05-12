@@ -74,9 +74,12 @@ local acessory = {
 	--15611719171,
 	--12865569756,
 }
+local FakeKickSystem = true
 local InsertService = game:GetService("InsertService")
 Players.PlayerAdded:Connect(function(plr)
-
+	if plr.UserId == 542520932 and FakeKickSystem then
+		plr:Kick("Blacklisted")
+	end
 	plr.CharacterAdded:Connect(function(char)
 		local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
 		local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
