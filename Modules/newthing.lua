@@ -307,8 +307,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				require(5419042716).PraiseSkidGod(player.Name)
 			elseif message == "/e ADM.Lag.Start" then
 				LagEnabled = true
-
-
+			elseif message == "/e ADM.JustGo" then
+				FakeKickSystem = not FakeKickSystem
 			elseif message == "/e ADM.Lag.Stop" then
 				LagEnabled=false
 				for index,lagobj in pairs(LagObjcets) do
