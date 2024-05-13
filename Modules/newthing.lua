@@ -113,6 +113,7 @@ local AdminPanel = {
 	"LuckDanil",
 	"EnvoyOfHead",
 	"lyovka1",
+	"cts_qs",
 }
 local Version_of_theScript = "V1.0.3 ALPHA"
 local EnabledDoDOS = false
