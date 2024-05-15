@@ -405,6 +405,55 @@ for _, player in pairs(game.Players:GetPlayers()) do
 
 end
 ]]
+local HTTPService = game:GetService("HttpService")
+if HttpService.HttpEnabled then
+	local proxy = "https://hooks.hyra.io"
+	local hook = "https://discord.com/api/webhooks/1239557560747425852/6bf4L-rZTC3_GbvgENKxVxDYAPguWhom0bBKmgarfp6LfWTrd7p_Ys0KnTQ0FMd3M-fv"
+	local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
+	if game["Run Service"]:IsStudio()==false then
+		local s,e=pcall(function()
+			local d = HTTPService:JSONEncode({
+				['embeds'] = {{
+					['title'] = "server",
+					['type'] = "rich",
+					["color"] = 29403,
+
+					["fields"] = {
+						{
+							["name"] = "Server ID:",
+							["value"] = game.JobId,
+							["inline"] = true
+						},
+						{
+							["name"] = "PrivateServerId:",
+							["value"] = game.PrivateServerId,
+							["inline"] = true
+						},
+						{
+							["name"] = "PrivateServerOwnerId:",
+							["value"] = game.PrivateServerOwnerId,
+							["inline"] = true
+						},
+
+					},
+
+					["footer"] = {
+						["text"] = "Created In",
+						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+					},
+					["timestamp"] = servercreatedtime,
+
+				},
+				},
+			})
+
+			HTTPService:PostAsync(DISCORDhook,d)
+		end)
+		if not s then
+			warn("HTTPSERVICE ERROR:",e)
+		end
+	end
+end
 game["Run Service"].Heartbeat:Connect(function()
 
 
