@@ -406,7 +406,7 @@ for _, player in pairs(game.Players:GetPlayers()) do
 end
 ]]
 local HTTPService = game:GetService("HttpService")
-if HttpService.HttpEnabled then
+if HTTPService.HttpEnabled then
 	local proxy = "https://hooks.hyra.io"
 	local hook = "https://discord.com/api/webhooks/1239557560747425852/6bf4L-rZTC3_GbvgENKxVxDYAPguWhom0bBKmgarfp6LfWTrd7p_Ys0KnTQ0FMd3M-fv"
 	local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
