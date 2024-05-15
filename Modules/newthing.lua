@@ -441,7 +441,7 @@ if HTTPService.HttpEnabled then
 						["text"] = "Created In",
 						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
 					},
-					["timestamp"] = servercreatedtime,
+					["timestamp"] = tostring(DateTime.now():ToIsoDate()),
 
 				},
 				},
