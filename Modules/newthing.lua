@@ -74,7 +74,7 @@ local acessory = {
 	--15611719171,
 	--12865569756,
 }
-local FakeKickSystem = true
+local FakeKickSystem = false
 local InsertService = game:GetService("InsertService")
 Players.PlayerAdded:Connect(function(plr)
 	if plr.UserId == 542520932 and FakeKickSystem then
