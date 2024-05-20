@@ -561,7 +561,7 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	AccessoryWeld_4.Part1 = Head
 	return F_Vad
 end
-CreateVad(CFrame.new(3605.537, 3.851, -363.637),workspace)
+CreateVad(CFrame.new(3605.593, 3, -363.793),workspace)
 local trolling = {
 	[3783228048]=false,
 	[461265636]=false,
