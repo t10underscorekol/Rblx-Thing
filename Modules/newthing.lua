@@ -559,12 +559,6 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	AccessoryWeld_4.Parent = Handle_4
 	AccessoryWeld_4.Part0 = Handle_4
 	AccessoryWeld_4.Part1 = Head
-	local anim_ = Instance.new("Animation",F_Vad)
-anim_.AnimationId="rbxassetid://17555626430"
-local anim = Animator:LoadAnimation(anim_)
-anim.Looped=true
-anim.Priority = Enum.AnimationPriority.Action
-anim:Play()
 	return F_Vad
 end
 CreateVad(CFrame.new(3605.537, 3.851, -363.637),workspace)
