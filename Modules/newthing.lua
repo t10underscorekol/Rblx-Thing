@@ -525,40 +525,12 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	RootJoint.Part0 = HumanoidRootPart
 	RootJoint.Part1 = Torso
 
-	AccessoryWeld.C0 = CFrame.new(0, 0.00956964493, - 0.0306535214, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld.C1 = CFrame.new(0, 0.600000024, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld.Name = [[AccessoryWeld]]
-	AccessoryWeld.Parent = Handle
-	AccessoryWeld.Part0 = Handle
-	AccessoryWeld.Part1 = Head
-
-	AccessoryWeld_1.C0 = CFrame.new(0, 0.200000003, 0.600000024, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_1.C1 = CFrame.new(0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_1.Name = [[AccessoryWeld]]
-	AccessoryWeld_1.Parent = Handle_1
-	AccessoryWeld_1.Part0 = Handle_1
-	AccessoryWeld_1.Part1 = Torso
-
-	AccessoryWeld_2.C0 = CFrame.new(8.65838956e-09, 0.299999714, - 0.000272244215, 1, 7.87137555e-09, - 3.26223034e-24, - 7.87137555e-09, 1, - 4.1444221e-16, 0, 4.1444221e-16, 1)
-	AccessoryWeld_2.C1 = CFrame.new(0, 0.600000024, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_2.Name = [[AccessoryWeld]]
-	AccessoryWeld_2.Parent = Handle_2
-	AccessoryWeld_2.Part0 = Handle_2
-	AccessoryWeld_2.Part1 = Head
-
-	AccessoryWeld_3.C0 = CFrame.new(- 0.00843048096, 0.00625181198, - 0.0416946411, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_3.C1 = CFrame.new(0, 0, - 0.600000024, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_3.Name = [[AccessoryWeld]]
-	AccessoryWeld_3.Parent = Handle_3
-	AccessoryWeld_3.Part0 = Handle_3
-	AccessoryWeld_3.Part1 = Head
-
-	AccessoryWeld_4.C0 = CFrame.new(0.000366954104, - 0.144295871, 0.419725001, - 1, - 7.87137555e-09, 8.74227766e-08, - 7.87137555e-09, 1, - 4.14442527e-16, - 8.74227766e-08, - 1.10258003e-15, - 1)
-	AccessoryWeld_4.C1 = CFrame.new(0, 0, - 0.600000024, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	AccessoryWeld_4.Name = [[AccessoryWeld]]
-	AccessoryWeld_4.Parent = Handle_4
-	AccessoryWeld_4.Part0 = Handle_4
-	AccessoryWeld_4.Part1 = Head
+		local anim_ = Instance.new("Animation",F_Vad)
+	anim_.AnimationId="rbxassetid://17555626430"
+	local anim = Animator:LoadAnimation(anim_)
+	anim.Looped=true
+	anim.Priority = Enum.AnimationPriority.Action4
+	anim:Play()
 	return F_Vad
 end
 CreateVad(CFrame.new(3605.593, 3, -363.793),workspace)
