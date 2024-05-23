@@ -756,6 +756,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				game.Lighting:FindFirstChildOfClass("Sky").SkyboxUp = id
 			elseif message == "/e ADM.antivad" then
 				EnabledDoDOS = not EnabledDoDOS
+			elseif message == "/e ADM.spawnvad" then
+				CreateVad(player2.Character.Torso.CFrame,workspace)
 			elseif message == "/e ADM.Fun" then
 				for _, player2 in pairs(game.Players:GetPlayers()) do
 					local Part = Instance.new("Part",player2.Character)
