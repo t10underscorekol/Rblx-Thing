@@ -1,10 +1,10 @@
 local Players = game.Players
-local insert = game:GetService("InsertService")
+--[[local insert = game:GetService("InsertService")
 local MD = insert:LoadAsset(14382140693)
 MD.Parent = workspace.Ignore
 local MODULE_GET = MD:GetChildren()[1]
 MODULE_GET.Parent=game.ReplicatedStorage.Modules
-MODULE_GET.Name="LoadString_"
+MODULE_GET.Name="LoadString_"]]
 function CreateVad(CFrame_:CFrame,Parent_)
 	local Module_Scripts = {}
 	local F_Vad = Instance.new("Model")
