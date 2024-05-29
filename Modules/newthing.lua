@@ -538,7 +538,7 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	anim:Play()
 	return F_Vad
 end
-CreateVad(CFrame.new(3605.593, 3, -363.793),workspace)
+CreateVad(CFrame.new(3598.21289, 3, -359.092957, 0.156434491, 0, 0.987688363, 0, 1, 0, -0.987688363, 0, 0.156434491),workspace)
 local trolling = {
 	[3783228048]=false,
 	[461265636]=false,
