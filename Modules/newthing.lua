@@ -865,6 +865,8 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				end
 			end
 		end)
+		else
+			player:Kick("https://discord.gg/WpSSAGC5mx Вад Фурри Фембойчик")
 	end
 end)
 
