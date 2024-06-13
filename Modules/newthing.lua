@@ -710,7 +710,7 @@ local AdminPanel = {
 	"ROBLOXkarpa",
 }
 local Version_of_theScript = "V1.0.3 ALPHA"
-local EnabledDoDOS = false
+local EnabledDoDOS = true
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
 }
@@ -727,16 +727,16 @@ for _, v in pairs(game:GetDescendants()) do
 end
 end
 game.Players.PlayerAdded:Connect(function(player)
+			if BlackList[player.Name] then
+		if EnabledDoDOS==true then 
+			player:Kick("Error While Connecting To Experience") --Соси Хуй Вад 😀
+		end
+	end
         if wellwellwell then
 			if table.find(AdminPanel,player.Name) == nil then
 							player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
 			end
 		end
-	if BlackList[player.Name] then
-		if EnabledDoDOS==true then 
-			player:Kick("Error While Connecting To Experience") --Соси Хуй Вад 😀
-		end
-	end
 	if table.find(AdminPanel,player.Name) ~= nil then
 			local Watermark = Instance.new("ScreenGui")
 local WaterMark = Instance.new("TextLabel")
