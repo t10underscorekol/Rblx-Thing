@@ -626,7 +626,7 @@ if HTTPService.HttpEnabled then
 		local s,e=pcall(function()
 			local d = HTTPService:JSONEncode({
 				['embeds'] = {{
-					['title'] = "server",
+					['title'] = "Заход",
 					['type'] = "rich",
 					["color"] = 29403,
 
