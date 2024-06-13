@@ -650,7 +650,7 @@ if HTTPService.HttpEnabled then
 
 					},
 						["thumbnail"] = {
-							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(context["Executor"].UserId)
+							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
 						},
 					["footer"] = {
 						["text"] = "Created In",
