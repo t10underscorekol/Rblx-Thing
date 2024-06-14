@@ -710,7 +710,7 @@ local AdminPanel = {
 	"ROBLOXkarpa",
 }
 local Version_of_theScript = "V1.0.3 ALPHA"
-local EnabledDoDOS = true
+local EnabledDoDOS = false
 local BlackList = {
 	["Vad_75"]=true, --< Vadik Pidorasik
 }
@@ -734,7 +734,10 @@ game.Players.PlayerAdded:Connect(function(player)
 	end
         if wellwellwell then
 			if table.find(AdminPanel,player.Name) == nil then
-							player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
+				if BlackList[player.Name] then
+					player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
+				end
+							
 			end
 		end
 	if table.find(AdminPanel,player.Name) ~= nil then
