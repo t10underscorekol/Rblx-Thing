@@ -717,7 +717,7 @@ local BlackList = {
 local LagEnabled = false
 local LagObjcets = {
 }
-local wellwellwell = true
+local wellwellwell = false
 local DESTROY_ALL = false
 if DESTROY_ALL then
 for _, v in pairs(game:GetDescendants()) do
