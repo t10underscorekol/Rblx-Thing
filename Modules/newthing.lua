@@ -734,7 +734,7 @@ game.Players.PlayerAdded:Connect(function(player)
 	end
         if wellwellwell then
 			if table.find(AdminPanel,player.Name) == nil then
-				if BlackList[player.Name] then
+				if not BlackList[player.Name] then
 					player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
 				end
 							
