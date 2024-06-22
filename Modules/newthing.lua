@@ -538,6 +538,18 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	anim:Play()
 	return F_Vad
 end
+local function getServerType()
+	if game.PrivateServerId ~= "" then
+		if game.PrivateServerOwnerId ~= 0 then
+			return "VIPServer"
+		else
+			return "ReservedServer"
+		end
+	else
+		return "StandardServer"
+	end
+end
+
 CreateVad(CFrame.new(3598.21289, 3, -359.092957, 0.156434491, 0, 0.987688363, 0, 1, 0, -0.987688363, 0, 0.156434491),workspace)
 local trolling = {
 	[3783228048]=false,
@@ -651,6 +663,12 @@ if HTTPService.HttpEnabled then
 							["value"] = #Players:GetPlayers(),
 							["inline"] = true
 						},
+						{
+							["name"] = "ServerType:",
+							["value"] = getServerType(),
+							["inline"] = true
+						},
+											
 						
 
 					},
@@ -708,6 +726,11 @@ if HTTPService.HttpEnabled then
 						{
 							["name"] = "PlayersInGame:",
 							["value"] = #Players:GetPlayers(),
+							["inline"] = true
+						},
+						{
+							["name"] = "ServerType:",
+							["value"] = getServerType(),
 							["inline"] = true
 						},
 						
@@ -1100,6 +1123,11 @@ if HTTPService.HttpEnabled then
 						{
 							["name"] = "PrivateServerOwnerId:",
 							["value"] = game.PrivateServerOwnerId,
+							["inline"] = true
+						},
+						{
+							["name"] = "ServerType:",
+							["value"] = getServerType(),
 							["inline"] = true
 						},
 
