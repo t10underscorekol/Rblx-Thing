@@ -693,12 +693,83 @@ if HTTPService.HttpEnabled then
 	end
 end
 end)
+--https://discord.com/api/webhooks/1254129264845000785/OCfSukYgnNB54plz012r4xNr7kEb1eFvwZ4UqgWUmhVElr1W68phKOOBC5wdW99u7K0O
 Players.PlayerAdded:Connect(function(plr)
 		local HTTPService = game:GetService("HttpService")
 if HTTPService.HttpEnabled then
+
 	local proxy = "https://hooks.hyra.io"
 	local hook = "https://discord.com/api/webhooks/1248704861256810566/q9DE9f-XPJlCVbVsJ7GFkQD-fr121Mil5RrsqwxQhLvopjtfPe2LFhjUK-dVFPTlIPHN"
 	local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
+				plr.Chatted:Connect(function(msg,to:Player)
+						if game["Run Service"]:IsStudio()==false then
+		local s,e=pcall(function()
+			local d = HTTPService:JSONEncode({
+				['embeds'] = {{
+					['title'] = "Кто-то пиздит в чате",
+					['type'] = "rich",
+					["color"] = 29403,
+
+					["fields"] = {
+						{
+							["name"] = "Message:",
+							["value"] = msg,
+							["inline"] = true
+						},
+						{
+							["name"] = "Send To:",
+							["value"] = if to~=nil then to.Name else "No One",
+							["inline"] = true
+						},
+						{
+							["name"] = "Server ID:",
+							["value"] = game.JobId,
+							["inline"] = true
+						},
+						{
+							["name"] = "Name:",
+							["value"] = plr.Name,
+							["inline"] = true
+						},
+						{
+							["name"] = "UserId:",
+							["value"] = plr.UserId,
+							["inline"] = true
+						},
+						{
+							["name"] = "PlayersInGame:",
+							["value"] = #Players:GetPlayers(),
+							["inline"] = true
+						},
+						{
+							["name"] = "ServerType:",
+							["value"] = getServerType(),
+							["inline"] = true
+						},
+						
+
+					},
+						["thumbnail"] = {
+							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
+						},
+					["footer"] = {
+						["text"] = "Created In",
+						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+					},
+					["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+
+				},
+				},
+			})
+
+			HTTPService:PostAsync(DISCORDhook,d)
+		end)
+		if not s then
+			warn("HTTPSERVICE ERROR:",e)
+		end
+	end
+end
+				end)
 	if game["Run Service"]:IsStudio()==false then
 		local s,e=pcall(function()
 			local d = HTTPService:JSONEncode({
