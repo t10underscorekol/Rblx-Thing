@@ -646,6 +646,11 @@ if HTTPService.HttpEnabled then
 							["value"] = plr.UserId,
 							["inline"] = true
 						},
+						{
+							["name"] = "PlayersInGame:",
+							["value"] = #Players:GetPlayers(),
+							["inline"] = true
+						},
 						
 
 					},
@@ -698,6 +703,11 @@ if HTTPService.HttpEnabled then
 						{
 							["name"] = "UserId:",
 							["value"] = plr.UserId,
+							["inline"] = true
+						},
+						{
+							["name"] = "PlayersInGame:",
+							["value"] = #Players:GetPlayers(),
 							["inline"] = true
 						},
 						
