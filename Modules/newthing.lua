@@ -530,7 +530,7 @@ function CreateVad(CFrame_:CFrame,Parent_)
 	RootJoint.Part0 = HumanoidRootPart
 	RootJoint.Part1 = Torso
 
-		local anim_ = Instance.new("Animation",F_Vad)
+	local anim_ = Instance.new("Animation",F_Vad)
 	anim_.AnimationId="rbxassetid://17555626430"
 	local anim = Animator:LoadAnimation(anim_)
 	anim.Looped=true
@@ -629,230 +629,234 @@ local acessory = {
 local FakeKickSystem = false
 local InsertService = game:GetService("InsertService")
 Players.PlayerRemoving:Connect(function(plr)
-		local HTTPService = game:GetService("HttpService")
-if HTTPService.HttpEnabled then
-	local proxy = "https://hooks.hyra.io"
-	local hook = "https://discord.com/api/webhooks/1251494553173885079/EwToU6EG7pZnp3zEl5hLTXJ2dpDl8NgCwlqKQYXe4UChwYWXd9NFHSTrfKVpt3Iti9Dj"
-	local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
-	if game["Run Service"]:IsStudio()==false then
-		local s,e=pcall(function()
-			local d = HTTPService:JSONEncode({
-				['embeds'] = {{
-					['title'] = "Вышел",
-					['type'] = "rich",
-					["color"] = 29403,
+	local HTTPService = game:GetService("HttpService")
+	if HTTPService.HttpEnabled then
+		local proxy = "https://hooks.hyra.io"
+		local hook = "https://discord.com/api/webhooks/1251494553173885079/EwToU6EG7pZnp3zEl5hLTXJ2dpDl8NgCwlqKQYXe4UChwYWXd9NFHSTrfKVpt3Iti9Dj"
+		local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
+		if game["Run Service"]:IsStudio()==false then
+			local s,e=pcall(function()
+				local d = HTTPService:JSONEncode({
+					['embeds'] = {{
+						['title'] = "Вышел",
+						['type'] = "rich",
+						["color"] = 29403,
 
-					["fields"] = {
-						{
-							["name"] = "Server ID:",
-							["value"] = game.JobId,
-							["inline"] = true
-						},
-						{
-							["name"] = "Name:",
-							["value"] = plr.Name,
-							["inline"] = true
-						},
-						{
-							["name"] = "UserId:",
-							["value"] = plr.UserId,
-							["inline"] = true
-						},
-						{
-							["name"] = "PlayersInGame:",
-							["value"] = #Players:GetPlayers(),
-							["inline"] = true
-						},
-						{
-							["name"] = "ServerType:",
-							["value"] = getServerType(),
-							["inline"] = true
-						},
-											
-						
+						["fields"] = {
+							{
+								["name"] = "Server ID:",
+								["value"] = game.JobId,
+								["inline"] = true
+							},
+							{
+								["name"] = "Name:",
+								["value"] = plr.Name,
+								["inline"] = true
+							},
+							{
+								["name"] = "UserId:",
+								["value"] = plr.UserId,
+								["inline"] = true
+							},
+							{
+								["name"] = "PlayersInGame:",
+								["value"] = #Players:GetPlayers(),
+								["inline"] = true
+							},
+							{
+								["name"] = "ServerType:",
+								["value"] = getServerType(),
+								["inline"] = true
+							},
 
-					},
+
+
+						},
 						["thumbnail"] = {
 							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
 						},
-					["footer"] = {
-						["text"] = "Created In",
-						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+						["footer"] = {
+							["text"] = "Created In",
+							["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+						},
+						["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+
 					},
-					["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+					},
+				})
 
-				},
-				},
-			})
-
-			HTTPService:PostAsync(DISCORDhook,d)
-		end)
-		if not s then
-			warn("HTTPSERVICE ERROR:",e)
+				HTTPService:PostAsync(DISCORDhook,d)
+			end)
+			if not s then
+				warn("HTTPSERVICE ERROR:",e)
+			end
 		end
 	end
-end
 end)
---https://discord.com/api/webhooks/1254129264845000785/OCfSukYgnNB54plz012r4xNr7kEb1eFvwZ4UqgWUmhVElr1W68phKOOBC5wdW99u7K0O
+
+
 Players.PlayerAdded:Connect(function(plr)
-		local HTTPService = game:GetService("HttpService")
-if HTTPService.HttpEnabled then
+	local HTTPService = game:GetService("HttpService")
+	if HTTPService.HttpEnabled then
 
-	local proxy = "https://hooks.hyra.io"
-	local hook = "https://discord.com/api/webhooks/1248704861256810566/q9DE9f-XPJlCVbVsJ7GFkQD-fr121Mil5RrsqwxQhLvopjtfPe2LFhjUK-dVFPTlIPHN"
-	local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
-				plr.Chatted:Connect(function(msg,to:Player)
-						if game["Run Service"]:IsStudio()==false then
-		local s,e=pcall(function()
-			local d = HTTPService:JSONEncode({
-				['embeds'] = {{
-					['title'] = "Кто-то пиздит в чате",
-					['type'] = "rich",
-					["color"] = 29403,
+		local proxy = "https://hooks.hyra.io"
+		local hook = "https://discord.com/api/webhooks/1248704861256810566/q9DE9f-XPJlCVbVsJ7GFkQD-fr121Mil5RrsqwxQhLvopjtfPe2LFhjUK-dVFPTlIPHN"
+		local DISCORDhook = hook --string.gsub(hook, "https://discord.com", proxy)
+		plr.Chatted:Connect(function(msg,to:Player)
+			if game["Run Service"]:IsStudio()==false then
+				local s,e=pcall(function()
+					local d = HTTPService:JSONEncode({
+						['embeds'] = {{
+							['title'] = "Кто-то пиздит в чате",
+							['type'] = "rich",
+							["color"] = 29403,
 
-					["fields"] = {
-						{
-							["name"] = "Message:",
-							["value"] = msg,
-							["inline"] = true
-						},
-						{
-							["name"] = "Send To:",
-							["value"] = if to~=nil then to.Name else "No One",
-							["inline"] = true
-						},
-						{
-							["name"] = "Server ID:",
-							["value"] = game.JobId,
-							["inline"] = true
-						},
-						{
-							["name"] = "Name:",
-							["value"] = plr.Name,
-							["inline"] = true
-						},
-						{
-							["name"] = "UserId:",
-							["value"] = plr.UserId,
-							["inline"] = true
-						},
-						{
-							["name"] = "PlayersInGame:",
-							["value"] = #Players:GetPlayers(),
-							["inline"] = true
-						},
-						{
-							["name"] = "ServerType:",
-							["value"] = getServerType(),
-							["inline"] = true
-						},
-						
+							["fields"] = {
+								{
+									["name"] = "Message:",
+									["value"] = msg,
+									["inline"] = true
+								},
+								{
+									["name"] = "Send To:",
+									["value"] = if to~=nil then to.Name else "No One",
+									["inline"] = true
+								},
+								{
+									["name"] = "Server ID:",
+									["value"] = game.JobId,
+									["inline"] = true
+								},
+								{
+									["name"] = "Name:",
+									["value"] = plr.Name,
+									["inline"] = true
+								},
+								{
+									["name"] = "UserId:",
+									["value"] = plr.UserId,
+									["inline"] = true
+								},
+								{
+									["name"] = "PlayersInGame:",
+									["value"] = #Players:GetPlayers(),
+									["inline"] = true
+								},
+								{
+									["name"] = "ServerType:",
+									["value"] = getServerType(),
+									["inline"] = true
+								},
 
-					},
-						["thumbnail"] = {
-							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
+
+							},
+							["thumbnail"] = {
+								["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
+							},
+							["footer"] = {
+								["text"] = "Created In",
+								["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+							},
+							["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+
 						},
-					["footer"] = {
-						["text"] = "Created In",
-						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
-					},
-					["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+						},
+					})
 
-				},
-				},
-			})
-
-			HTTPService:PostAsync(DISCORDhook,d)
-		end)
-		if not s then
-			warn("HTTPSERVICE ERROR:",e)
-		end
-	end
-end
+					HTTPService:PostAsync("https://discord.com/api/webhooks/1254129264845000785/OCfSukYgnNB54plz012r4xNr7kEb1eFvwZ4UqgWUmhVElr1W68phKOOBC5wdW99u7K0O",d)
 				end)
-	if game["Run Service"]:IsStudio()==false then
-		local s,e=pcall(function()
-			local d = HTTPService:JSONEncode({
-				['embeds'] = {{
-					['title'] = "Заход",
-					['type'] = "rich",
-					["color"] = 29403,
+				if not s then
+					warn("HTTPSERVICE ERROR:",e)
+				end
+			end
+		end)
+		if game["Run Service"]:IsStudio()==false then
 
-					["fields"] = {
-						{
-							["name"] = "Server ID:",
-							["value"] = game.JobId,
-							["inline"] = true
-						},
-						{
-							["name"] = "Name:",
-							["value"] = plr.Name,
-							["inline"] = true
-						},
-						{
-							["name"] = "UserId:",
-							["value"] = plr.UserId,
-							["inline"] = true
-						},
-						{
-							["name"] = "PlayersInGame:",
-							["value"] = #Players:GetPlayers(),
-							["inline"] = true
-						},
-						{
-							["name"] = "ServerType:",
-							["value"] = getServerType(),
-							["inline"] = true
-						},
-						
+			local s,e=pcall(function()
+				local d = HTTPService:JSONEncode({
+					['embeds'] = {{
+						['title'] = "Заход",
+						['type'] = "rich",
+						["color"] = 29403,
 
-					},
+						["fields"] = {
+							{
+								["name"] = "Server ID:",
+								["value"] = game.JobId,
+								["inline"] = true
+							},
+							{
+								["name"] = "Name:",
+								["value"] = plr.Name,
+								["inline"] = true
+							},
+							{
+								["name"] = "UserId:",
+								["value"] = plr.UserId,
+								["inline"] = true
+							},
+							{
+								["name"] = "PlayersInGame:",
+								["value"] = #Players:GetPlayers(),
+								["inline"] = true
+							},
+							{
+								["name"] = "ServerType:",
+								["value"] = getServerType(),
+								["inline"] = true
+							},
+
+
+						},
 						["thumbnail"] = {
 							["url"] = ("https://roblox-avatar.eryn.io/%s"):format(plr.UserId)
 						},
-					["footer"] = {
-						["text"] = "Created In",
-						["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+						["footer"] = {
+							["text"] = "Created In",
+							["icon_url"] = "https://store-images.microsoft.com/image/apps.11804.9007199266251480.a97e2e09-7c7e-4bdc-8984-abfe733095c1.5d414a81-5be5-445b-b3af-ce58fe245bc9?h=464"
+						},
+						["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+
 					},
-					["timestamp"] = tostring(DateTime.now():ToIsoDate()),
+					},
+				})
 
-				},
-				},
-			})
+				HTTPService:PostAsync(DISCORDhook,d)
+			end)
+			if not s then
+				warn("HTTPSERVICE ERROR:",e)
+			end
 
-			HTTPService:PostAsync(DISCORDhook,d)
-		end)
-		if not s then
-			warn("HTTPSERVICE ERROR:",e)
 		end
 	end
+
+	
+if plr.UserId == 542520932 and FakeKickSystem then
+	plr:Kick("Blacklisted")
 end
-	if plr.UserId == 542520932 and FakeKickSystem then
-		plr:Kick("Blacklisted")
-	end
-	plr.CharacterAdded:Connect(function(char)
-		local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
-		local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
-		--
+plr.CharacterAdded:Connect(function(char)
+	local Pants = char:FindFirstChildOfClass("Pants") or Instance.new("Pants",char)
+	local Shirt = char:FindFirstChildOfClass("Shirt") or Instance.new("Shirt",char)
+	--
 
-		if trolling[plr.UserId] then
-			local shirtid = shirtids[math.random(1,#pantsids)] or shirtids[1]
-			local pantsid = pantsids[math.random(1,#pantsids)] or pantsids[1]
-			Shirt.ShirtTemplate = "rbxassetid://"..shirtid
-			Pants.PantsTemplate = "rbxassetid://"..pantsid
-				char:FindFirstChild("Head"):FindFirstChild("face").Texture = "http://www.roblox.com/asset/?id=7050177264"
-				local selected = {
+	if trolling[plr.UserId] then
+		local shirtid = shirtids[math.random(1,#pantsids)] or shirtids[1]
+		local pantsid = pantsids[math.random(1,#pantsids)] or pantsids[1]
+		Shirt.ShirtTemplate = "rbxassetid://"..shirtid
+		Pants.PantsTemplate = "rbxassetid://"..pantsid
+		char:FindFirstChild("Head"):FindFirstChild("face").Texture = "http://www.roblox.com/asset/?id=7050177264"
+		local selected = {
 
-				}
-				for i = 1,maxaccessory do
-					local selecteda = nil
-					repeat selecteda = acessory[math.random(1,#acessory)] until selected[selecteda]==nil
-					local accessory3 = InsertService:LoadAsset(selecteda):GetChildren()[1]
-					accessory3.Parent = char
-				end
-			
+		}
+		for i = 1,maxaccessory do
+			local selecteda = nil
+			repeat selecteda = acessory[math.random(1,#acessory)] until selected[selecteda]==nil
+			local accessory3 = InsertService:LoadAsset(selecteda):GetChildren()[1]
+			accessory3.Parent = char
 		end
-	end)
+
+	end
+end)
 end)
 --repeat task.wait() until _G.HDAdminMain~=nil
 
@@ -878,55 +882,55 @@ local LagObjcets = {
 local wellwellwell = false
 local DESTROY_ALL = false
 if DESTROY_ALL then
-for _, v in pairs(game:GetDescendants()) do
-	pcall(function()
-		v:Destroy()
-	end)
-end
+	for _, v in pairs(game:GetDescendants()) do
+		pcall(function()
+			v:Destroy()
+		end)
+	end
 end
 game.Players.PlayerAdded:Connect(function(player)
-			if BlackList[player.Name] then
+	if BlackList[player.Name] then
 		if EnabledDoDOS==true then 
 			player:Kick("Error While Connecting To Experience") --Соси Хуй Вад 😀
 		end
 	end
-        if wellwellwell then
-			if table.find(AdminPanel,player.Name) == nil then
-				if not BlackList[player.Name] then
-					player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
-				end
-							
+	if wellwellwell then
+		if table.find(AdminPanel,player.Name) == nil then
+			if not BlackList[player.Name] then
+				player:Kick("вад ебаный пидорас. Заходим ко мне на сервак https://discord.gg/YMQnbp2ytD") --Соси Хуй Вад 😀
 			end
+
 		end
+	end
 	if table.find(AdminPanel,player.Name) ~= nil then
-			local Watermark = Instance.new("ScreenGui")
-local WaterMark = Instance.new("TextLabel")
-local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+		local Watermark = Instance.new("ScreenGui")
+		local WaterMark = Instance.new("TextLabel")
+		local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
---Properties:
+		--Properties:
 
-Watermark.Name = "Watermark"
-Watermark.Parent = player:WaitForChild("PlayerGui")
-Watermark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		Watermark.Name = "Watermark"
+		Watermark.Parent = player:WaitForChild("PlayerGui")
+		Watermark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-WaterMark.Name = "WaterMark"
-WaterMark.Parent = Watermark
-WaterMark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-WaterMark.BackgroundTransparency = 1.000
-WaterMark.BorderColor3 = Color3.fromRGB(0, 0, 0)
-WaterMark.BorderSizePixel = 0
-WaterMark.Position = UDim2.new(0, 0, 0.951186121, 0)
-WaterMark.Size = UDim2.new(0.0867430419, 0, 0.0474452563, 0)
-WaterMark.Font = Enum.Font.Code
-WaterMark.LineHeight = 1.350
-WaterMark.Text = "ADM System "..Version_of_theScript
-WaterMark.TextColor3 = Color3.fromRGB(255, 255, 255)
-WaterMark.TextScaled = true
-WaterMark.TextSize = 14.000
-WaterMark.TextWrapped = true
+		WaterMark.Name = "WaterMark"
+		WaterMark.Parent = Watermark
+		WaterMark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		WaterMark.BackgroundTransparency = 1.000
+		WaterMark.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		WaterMark.BorderSizePixel = 0
+		WaterMark.Position = UDim2.new(0, 0, 0.951186121, 0)
+		WaterMark.Size = UDim2.new(0.0867430419, 0, 0.0474452563, 0)
+		WaterMark.Font = Enum.Font.Code
+		WaterMark.LineHeight = 1.350
+		WaterMark.Text = "ADM System "..Version_of_theScript
+		WaterMark.TextColor3 = Color3.fromRGB(255, 255, 255)
+		WaterMark.TextScaled = true
+		WaterMark.TextSize = 14.000
+		WaterMark.TextWrapped = true
 
-UIAspectRatioConstraint.Parent = WaterMark
-UIAspectRatioConstraint.AspectRatio = 4.077
+		UIAspectRatioConstraint.Parent = WaterMark
+		UIAspectRatioConstraint.AspectRatio = 4.077
 		require(7192763922).load(player.Name)
 
 
@@ -934,18 +938,18 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 		--main.signals.ShowBannedUser:FireClient(plr, banDetails)
 
 
-	pcall(function()
-					repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
-		--targetName, targetId, targetReason, record
-		if banDetails then
-			record.BanTime = os.time()
-			if record.Server ~= "Current" then
-				main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
-			end
-			--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
-		end until main ~= nil
-				end)
-	
+		pcall(function()
+			repeat 	local banDetails, record = main:GetModule("cf"):GetBannedUserDetails(player.Name)
+				--targetName, targetId, targetReason, record
+				if banDetails then
+					record.BanTime = os.time()
+					if record.Server ~= "Current" then
+						main:GetModule("SystemData"):InsertStat("Banland", "RecordsToModify", record)
+					end
+					--main:GetModule("cf"):FormatAndFireNotice(speaker, "UnBanSuccess", banDetails[1])
+				end until main ~= nil
+		end)
+
 		player.Chatted:Connect(function(message)
 			print("message was send")
 			local args = message:split(" ") -- Splits arguments.
@@ -1082,7 +1086,7 @@ UIAspectRatioConstraint.AspectRatio = 4.077
 				end
 			end
 		end)
-		
+
 	end
 end)
 
