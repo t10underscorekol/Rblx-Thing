@@ -1,4 +1,4 @@
-script_key="pidor huy govo, cheln hui";
+script_key="tMQLUPmYxusfKUzMIIbOKOMGtEwByXgQ"
 
  -- This file was protected using Luraph Obfuscator v14.3 [https://lura.ph/]
 
