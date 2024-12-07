@@ -233,7 +233,7 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 			elseif inproccess_attack then
 				ResultPosition =  CFrame.lookAt(currentMoveTo.Position+Vector3.new(0,8.5,0),currentMoveTo.CFrame.p) 
 			end
-			ResultPosition = humanoid.RootPart.CFrame:ToObjectSpace(ResultPosition) 
+			ResultPosition = currentMoveTo.CFrame:ToObjectSpace(ResultPosition) 
 			weld.C0 = ResultPosition
 			
 			if inproccess_attack then
