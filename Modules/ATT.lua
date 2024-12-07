@@ -163,13 +163,14 @@ local casesnames = {
 
 local livingattacklist = {
 	["FlyHead"]=true,
-	["Jujutsu Sorceser"]=true,
+    ["Flyhead"]=true,
+	["Jujutsu Sorcerer"]=true,
 	["Mantis Curse"]=true,
 	["Roppongi Curse"]=true,
 }
-
-local weld = Instance.new("Weld")
-weld.Enabled=false
+--local weld = Instance.new("Weld")
+--weld.Enabled=false
+--weld.Name = "COOL WELD, SEX SEX PENIS"
 local function ATTACK()
 	local x = 0
 	local y = 0
@@ -183,72 +184,150 @@ newmaid.InputBegan = uis.InputBegan:Connect(function(key, processed)
 	if not processed then
 		if key.KeyCode == Enum.KeyCode.K then
 			Enabled = not Enabled
+            --if Enabled then
+                warn("Toggled",Enabled)
+           -- else
+
+           -- end
 		end
 	end
 end)
+
+local another_connection = nil
+
+
 newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 	local lerpAlpha = math.clamp(0.95*DT,0,1)
 	local IsRagdolled = if Player:FindFirstChild("Tags") and Player:FindFirstChild("Tags"):FindFirstChild("Ragdoll") then true else false
 	if (char) and (char:FindFirstChildOfClass("Humanoid")) and not IsRagdolled then
 		local humanoid = char:FindFirstChildOfClass("Humanoid") :: Humanoid
-		if not inproccess and not inproccess_attack and Enabled then
-			for Index,NPC in pairs(LivingFolder:GetChildren()) do
-				if (livingattacklist[NPC.Name]) then
-					local npcHumanoid = NPC:FindFirstChildOfClass("Humanoid")
-					if npcHumanoid and npcHumanoid.Health>0 then
-						inproccess_attack = true
-						local root = npcHumanoid.RootPart
-						currentMoveTo = root
-						npcHumanoid.Died:Wait()
-						inproccess_attack = false
-						currentMoveTo = nil
-					end
-				end
-			end
-		end
-		if not inproccess and not inproccess_attack and Enabled then
-
+        if Enabled then
 			for Index,Case:Instance in pairs(workspace:GetChildren()) do
-				if casesnames[Case.Name] and Case:IsA("Instance") and (Case:FindFirstChild("RootPart")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment"):FindFirstChildOfClass("ProximityPrompt")) then
-					inproccess =true
-					local root = Case:FindFirstChild("RootPart") :: Part
-					local OldRootCF = root.CFrame
-					local promt = Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment"):FindFirstChildOfClass("ProximityPrompt") :: ProximityPrompt
-					currentMoveTo=root
-					humanoid.RootPart.CFrame = root.CFrame * CFrame.new(promt.MaxActivationDistance*2,promt.MaxActivationDistance*2,promt.MaxActivationDistance*2)
-					promt.RequiresLineOfSight=false
-					promt.PromptShown:Wait()
-					promt:InputHoldBegin()
-					promt.PromptHidden:Wait()
-					inproccess=false
+				if not inproccess and casesnames[Case.Name] and Case:IsA("Instance") and (Case:FindFirstChild("RootPart")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment"):FindFirstChildOfClass("ProximityPrompt")) then
+                    inproccess =true
+                    inproccess_attack = false
+                    local root = Case:FindFirstChild("RootPart") :: Part
+                    local OldRootCF = root.CFrame
+                    local promt = Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment"):FindFirstChildOfClass("ProximityPrompt") :: ProximityPrompt
+
+                    task.spawn(function()
+
+                        
+                        currentMoveTo=root
+    
+                        --humanoid.RootPart.CFrame = root.CFrame * CFrame.new(promt.MaxActivationDistance*5,promt.MaxActivationDistance*5,promt.MaxActivationDistance*5)
+                        task.wait(1)
+                        promt:InputHoldBegin()
+                        promt.PromptHidden:Wait()
+                        inproccess=false
+                    end)
+
+  
+    
+
 				end
 			end
-		elseif (inproccess or inproccess_attack) and Enabled and (currentMoveTo) then
-			weld.Enabled=true
-			weld.Part0 = currentMoveTo
-			weld.Part1 = humanoid.RootPart
+        end
+
+        if (inproccess or inproccess_attack) and Enabled and (currentMoveTo) then
+
+			--weld.Enabled=true
+			--weld.Part0 = currentMoveTo
+			--weld.Part1 = humanoid.RootPart
+           -- weld.Parent = humanoid.RootPart
+           if not inproccess and inproccess_attack then
+                humanoid.PlatformStand = true
+                humanoid.RootPart.Anchored = true
+           elseif inproccess and not inproccess_attack then
+            humanoid.PlatformStand = false
+            humanoid.RootPart.Anchored = false
+           end
+
+           
 			local ResultPosition =currentMoveTo.CFrame
-			if inproccess then
-				ResultPosition = currentMoveTo.CFrame * CFrame.new(0,1.5,0)
-			elseif inproccess_attack then
-				ResultPosition =  CFrame.lookAt(currentMoveTo.Position+Vector3.new(0,8.5,0),currentMoveTo.CFrame.p) 
+			if inproccess and not inproccess_attack then
+				ResultPosition = currentMoveTo.CFrame * CFrame.new(3.5,2.1,3.5)
+			elseif inproccess_attack and not inproccess then
+				ResultPosition =  CFrame.lookAt(currentMoveTo.Position+Vector3.new(0,5.5,5.5),currentMoveTo.CFrame.p) 
 			end
-			ResultPosition = currentMoveTo.CFrame:ToObjectSpace(ResultPosition) 
-			weld.C0 = ResultPosition
-			
-			if inproccess_attack then
+            humanoid.RootPart.CFrame = ResultPosition
+           -- game.ReplicatedStorage.Remotes.CombatService.ActiveChanged:FireServer(ResultPosition)
+			--ResultPosition = currentMoveTo.CFrame:ToObjectSpace(ResultPosition) 
+			--weld.C0 = ResultPosition
+
+
+			if inproccess_attack and currentMoveTo~=nil then
 				ATTACK()
 			end
+            if not inproccess and inproccess_attack then
+                humanoid.PlatformStand = false
+                humanoid.RootPart.Anchored = false
+           end
+           if inproccess and not inproccess_attack then
+            currentMoveTo=nil
+           end
 		elseif (not (currentMoveTo)) or not Enabled then
-			weld.Enabled=false
+            humanoid.RootPart.Anchored = false
+            humanoid.PlatformStand = false
 		end
+
+        local function findNearestHumanoid(myRootPart, distOfInt)
+            local nearestRootPart = nil
+            for Index,NPC in pairs(LivingFolder:GetChildren()) do
+                if NPC~=nil and livingattacklist[NPC.Name] then
+                    local otherRoot = NPC:FindFirstChild("HumanoidRootPart")
+                    if otherRoot then
+                        local distToOther = (otherRoot.Position - myRootPart.Position).Magnitude
+                        if distToOther < distOfInt and distToOther > 0 then
+                            local Humanoid = otherRoot.Parent:FindFirstChildOfClass("Humanoid")
+                            if (Humanoid) and Humanoid.Health > 0 then
+                                distOfInt = distToOther
+                                nearestRootPart = otherRoot
+                            end
+                        end
+                    end
+                end
+            end
+            return nearestRootPart, distOfInt
+        end
+
+        if not inproccess and not inproccess_attack and Enabled then
+            local npcHumanoidRootPart,Dist = findNearestHumanoid(humanoid.RootPart,5000)
+            if npcHumanoidRootPart~=nil then
+                inproccess_attack = true
+                local root = npcHumanoidRootPart
+                currentMoveTo = root
+                local npcHumanoid = root.Parent:FindFirstChildOfClass("Humanoid")
+                if npcHumanoid.Parent ~=nil and npcHumanoid~=nil then
+                    another_connection=npcHumanoid.Parent:GetPropertyChangedSignal("Parent"):Connect(function()
+                        if not npcHumanoid:IsDescendantOf(workspace) then
+                            inproccess_attack = false
+                            currentMoveTo = nil
+                            another_connection:Disconnect()
+                            another_connection=nil
+                            print("hum",npcHumanoid)
+                        end
+                    end)
+                else
+                    inproccess_attack = false
+                    currentMoveTo = nil
+                    print("hum",npcHumanoid)
+                end
+
+            end
+        end
+
 	end
 end)
 newmaid.CheckChanged = Check.Changed:Connect(function()
 	if Check.Value then
 		newmaid:Destroy()
 		Check:Destroy()
-		weld:Destroy()
+        if another_connection~=nil then
+            another_connection:Disconnect()
+            another_connection=nil
+        end
+		--weld:Destroy()
 		VirtualInputManager:Destroy()
 	end
 end)
