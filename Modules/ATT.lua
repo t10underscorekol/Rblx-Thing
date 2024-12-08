@@ -27,7 +27,12 @@
 Одлазимо да се не вратимо.
 --]]
 
-
+warn("ТЫ ЗАГРУЗИЛ ТУ ВЕРСИЮ. 213473846238432874")
+for i,v in pairs(game.Players:GetChildren()) do
+	if v.Name=="CLEAR_MAID_VALUE" then
+		v.Value = true
+	end
+end
 local Check = game.Players:FindFirstChild("CLEAR_MAID_VALUE")::BoolValue
 if Check then
 	Check.Value = true
@@ -36,7 +41,7 @@ local Check = Instance.new("BoolValue",game.Players)
 Check.Name="CLEAR_MAID_VALUE"
 Check.Value=false
 local VirtualInputManager = Instance.new("VirtualInputManager")
---local VirtualUser = Instance.new("VirtualUser")
+local VirtualUser = game:GetService("VirtualUser")
 local LivingFolder = workspace:WaitForChild("Living")
 function MakeMaidModule() -- MAID COPY AND PASTE
 	---	Manages the cleaning of events and other things.
@@ -204,23 +209,29 @@ local livingattacklist = {
 local function ATTACK(x,y)
 	x = x or 0
 	y = y or 0
-
 	VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, game, false)
-	task.wait()
-	VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, false)
+	task.spawn(function()
+		task.wait()
+		VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, game, false)
+	end)
 end
 
 local function MoveANDclick(x,y)
 	x = x or 0
 	y = y or 0
-    local donevec = Vector2.new(x,y)
-    --VirtualUser:ClickButton1(donevec, workspace.CurrentCamera)
+	--VirtualInputManager:SendMouseMoveEvent(x,y, Player)
+	--VirtualInputManager:SendMouseButtonEvent(x, y, 0, true, Player, false)
+	---task.spawn(function()
+	--	task.wait()
+	--	VirtualInputManager:SendMouseButtonEvent(x, y, 0, false, Player, false)
+	--end)
 end
 
 
 local newmaid = maid.new()
 newmaid.InputBegan = uis.InputBegan:Connect(function(key, processed)
 	if not processed then
+		--warn('penis',key)
 		if key.KeyCode == Enum.KeyCode.K then
 			Enabled = not Enabled
             --if Enabled then
@@ -235,6 +246,9 @@ newmaid.InputBegan = uis.InputBegan:Connect(function(key, processed)
                     humanoid.RootPart.CFrame=CFrame.new(2020.02344, 925.79248, -1579.27197, 0.996914685, -0, -0.0784924179, 0, 1, -0, 0.0784924179, 0, 0.996914685)
                 end
             end
+		elseif key.KeyCode == Enum.KeyCode.B then
+			warn("pressed b")
+			MoveANDclick(5,5)
 		end
 	end
 end)
@@ -269,15 +283,13 @@ end
 newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 	local lerpAlpha = math.clamp(0.95*DT,0,1)
 	local IsRagdolled = if Player:FindFirstChild("Tags") and Player:FindFirstChild("Tags"):FindFirstChild("Ragdoll") then true else false
-    if uis:IsKeyDown(Enum.KeyCode.U) then
-        MoveANDclick(5,5)
-    end
 	if (char) and (char:FindFirstChildOfClass("Humanoid")) and not IsRagdolled then
 		local humanoid = char:FindFirstChildOfClass("Humanoid") :: Humanoid
         if BlackMarketTesting and not cooldown_blackmarket and not BlackMarketProgress and workspace.NPCS ~= nil and workspace.NPCS:FindFirstChild("Black Market") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction") ~= nil then
             local promp = workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction")
             local hmd = workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart")
             if promp.Enabled then 
+				currentMoveTo = nil
                 humanoid.RootPart.CFrame = hmd.CFrame
                 local UI = Player.PlayerGui.UI
                 if UI~=nil then
@@ -286,24 +298,23 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
                         local BlackMarketUI = menus["Black Market"]
                         if BlackMarketUI~=nil then
                             cooldown_blackmarket=true
-                            BlackMarketProgress=true
-                            menus.Visible = true
+                           -- BlackMarketProgress=true
+                           -- menus.Visible = true
                         
                             BlackMarketUI.Visible = true
-
-                            MoveANDclick(0,5)
-                            warn("Wait 5 sec!")
-                            task.wait(5)
-
+							
+  
+                            warn("Wait 2 sec!")
+                            task.wait(2)
                             if humanoid.RootPart~=nil then
                                 humanoid.RootPart.CFrame=CFrame.new(2020.02344, 925.79248, -1579.27197, 0.996914685, -0, -0.0784924179, 0, 1, -0, 0.0784924179, 0, 0.996914685)
                             end
 
-                            BlackMarketProgress=false
+                           -- BlackMarketProgress=false
 
-                            menus.Visible = false
+                           -- menus.Visible = false
                         
-                            BlackMarketUI.Visible = false
+                           -- BlackMarketUI.Visible = false
                             
                             task.delay(60,function()
                                 cooldown_blackmarket = false
