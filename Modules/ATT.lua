@@ -245,6 +245,27 @@ local BlackMarketProgress = false
 local cooldown_blackmarket = false
 
 local BlackMarketTesting = false
+
+local function findNearestHumanoid(myRootPart, distOfInt)
+	local nearestRootPart = nil
+	for Index,NPC in pairs(LivingFolder:GetChildren()) do
+		if NPC~=nil and livingattacklist[NPC.Name] then
+			local otherRoot = NPC:FindFirstChild("HumanoidRootPart")
+			if otherRoot then
+				local distToOther = (otherRoot.Position - myRootPart.Position).Magnitude
+				if distToOther < distOfInt and distToOther > 0 then
+					local Humanoid = otherRoot.Parent:FindFirstChildOfClass("Humanoid")
+					if (Humanoid) and Humanoid.Health > 0 then
+						distOfInt = distToOther
+						nearestRootPart = otherRoot
+					end
+				end
+			end
+		end
+	end
+	return nearestRootPart, distOfInt
+end
+
 newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 	local lerpAlpha = math.clamp(0.95*DT,0,1)
 	local IsRagdolled = if Player:FindFirstChild("Tags") and Player:FindFirstChild("Tags"):FindFirstChild("Ragdoll") then true else false
@@ -357,26 +378,6 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
             humanoid.RootPart.Anchored = false
             humanoid.PlatformStand = false
 		end
-
-        local function findNearestHumanoid(myRootPart, distOfInt)
-            local nearestRootPart = nil
-            for Index,NPC in pairs(LivingFolder:GetChildren()) do
-                if NPC~=nil and livingattacklist[NPC.Name] then
-                    local otherRoot = NPC:FindFirstChild("HumanoidRootPart")
-                    if otherRoot then
-                        local distToOther = (otherRoot.Position - myRootPart.Position).Magnitude
-                        if distToOther < distOfInt and distToOther > 0 then
-                            local Humanoid = otherRoot.Parent:FindFirstChildOfClass("Humanoid")
-                            if (Humanoid) and Humanoid.Health > 0 then
-                                distOfInt = distToOther
-                                nearestRootPart = otherRoot
-                            end
-                        end
-                    end
-                end
-            end
-            return nearestRootPart, distOfInt
-        end
 
         if not inproccess and not inproccess_attack and Enabled then
             local npcHumanoidRootPart,Dist = findNearestHumanoid(humanoid.RootPart,5000)
