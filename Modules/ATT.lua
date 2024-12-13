@@ -181,6 +181,34 @@ local maid = MakeMaidModule() --require(81567645105187) or require(script.MainMo
 local uis = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Player = game.Players.LocalPlayer
+
+
+-- собственно говоря, код от какого-то человека, спасибо ему.
+local RemoteServices = game:GetService("ReplicatedStorage").ReplicatedModules.KnitPackage.Knit.Services
+
+local ItemWhitelist = {}
+
+local function InvokeServer(rem, ...)
+    return rem:InvokeServer(...)
+end
+
+local function FireServer(rem, ...)
+    return rem:FireServer(...)
+end
+
+local function SellItems()
+    local ItemTable = {}
+    for i, v in ipairs(Player.Backpack:GetChildren()) do
+        if v:IsA("Tool") and not table.find(ItemWhitelist, v.Name) then
+            local Attributes = v:GetAttributes()
+            ItemTable[i] = {Attributes["ItemId"], Attributes["UUID"], 1}
+        end
+    end
+    FireServer(RemoteServices:WaitForChild("ShopService"):WaitForChild("RE"):WaitForChild("Signal"),
+        "BlackMarketBulkSellItems", ItemTable)
+end
+
+
 local char = Player.Character
 Player.CharacterAdded:Connect(function(NEWCHAR)
 	char = NEWCHAR
@@ -188,7 +216,7 @@ end)
 local Enabled = false
 local inproccess = false
 local inproccess_attack = false
-
+local defaultspawnpos = CFrame.new(2020.02344, 925.79248, -1579.27197, 0.996914685, -0, -0.0784924179, 0, 1, -0, 0.0784924179, 0, 0.996914685)
 local currentMoveTo = nil
 local casesnames = {
 	["Epic"]=true,
@@ -243,12 +271,12 @@ newmaid.InputBegan = uis.InputBegan:Connect(function(key, processed)
             if (char) and (char:FindFirstChildOfClass("Humanoid")) then
                 local humanoid = char:FindFirstChildOfClass("Humanoid") :: Humanoid
                 if humanoid.RootPart~=nil then
-                    humanoid.RootPart.CFrame=CFrame.new(2020.02344, 925.79248, -1579.27197, 0.996914685, -0, -0.0784924179, 0, 1, -0, 0.0784924179, 0, 0.996914685)
+                    humanoid.RootPart.CFrame=defaultspawnpos
                 end
             end
 		elseif key.KeyCode == Enum.KeyCode.B then
 			warn("pressed b")
-			MoveANDclick(5,5)
+			SellItems()
 		end
 	end
 end)
@@ -279,18 +307,26 @@ local function findNearestHumanoid(myRootPart, distOfInt)
 	end
 	return nearestRootPart, distOfInt
 end
-
+local OffesetsForLimbs = {
+	[Enum.Limb.Head]=CFrame.new(0,1.5,0),
+	[Enum.Limb.LeftArm]=CFrame.new(1,0,0),
+	[Enum.Limb.RightArm]=CFrame.new(-1,0,0),
+	[Enum.Limb.LeftLeg]=CFrame.new(1,-1.5,0),
+	[Enum.Limb.RightLeg]=CFrame.new(-1,-1.5,0),
+	[Enum.Limb.Torso]=CFrame.new(0,0,0),
+}
 newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 	local lerpAlpha = math.clamp(0.95*DT,0,1)
-	local IsRagdolled = if Player:FindFirstChild("Tags") and Player:FindFirstChild("Tags"):FindFirstChild("Ragdoll") then true else false
-	if (char) and (char:FindFirstChildOfClass("Humanoid")) and not IsRagdolled then
+	local IsRagdolled = if Player:FindFirstChild("Tags") and (Player:FindFirstChild("Tags"):FindFirstChild("Ragdoll")) then true else false
+	if (char) and (char:FindFirstChildOfClass("Humanoid")) then
+
 		local humanoid = char:FindFirstChildOfClass("Humanoid") :: Humanoid
+
         if BlackMarketTesting and not cooldown_blackmarket and not BlackMarketProgress and workspace.NPCS ~= nil and workspace.NPCS:FindFirstChild("Black Market") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction") ~= nil then
             local promp = workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction")
             local hmd = workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart")
             if promp.Enabled then 
 				currentMoveTo = nil
-                humanoid.RootPart.CFrame = hmd.CFrame
                 local UI = Player.PlayerGui.UI
                 if UI~=nil then
                     local menus = UI.Menus
@@ -298,37 +334,36 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
                         local BlackMarketUI = menus["Black Market"]
                         if BlackMarketUI~=nil then
                             cooldown_blackmarket=true
-                           -- BlackMarketProgress=true
-                           -- menus.Visible = true
-                        
-                            BlackMarketUI.Visible = true
-							
-  
-                            warn("Wait 2 sec!")
-                            task.wait(2)
-                            if humanoid.RootPart~=nil then
-                                humanoid.RootPart.CFrame=CFrame.new(2020.02344, 925.79248, -1579.27197, 0.996914685, -0, -0.0784924179, 0, 1, -0, 0.0784924179, 0, 0.996914685)
-                            end
-
-                           -- BlackMarketProgress=false
-
-                           -- menus.Visible = false
-                        
-                           -- BlackMarketUI.Visible = false
-                            
+							SellItems()
                             task.delay(60,function()
                                 cooldown_blackmarket = false
                             end)
-                            
-
                         end
                     end
                 end
             end
         end
+		if IsRagdolled then 
+			humanoid.RootPart.CFrame = defaultspawnpos*CFrame.new(0,100,0)
+			if humanoid.Parent~=nil then
+				for i,v in pairs(humanoid.Parent:GetChildren()) do
+					if v.Parent == humanoid.Parent and humanoid:GetLimb(v)~=Enum.Limb.Unknown then
+						v.CFrame = humanoid.RootPart.CFrame * OffesetsForLimbs[humanoid:GetLimb(v)]
+					end
+				end
+			end
+
+			return 
+		end
         --print(workspace.NPCS ~= nil and workspace.NPCS:FindFirstChild("Black Market") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction") ~= nil)
         if BlackMarketProgress then return end
         if Enabled then
+			--if humanoid.RootPart~=nil then
+			--	local dist = (humanoid.RootPart.Position-defaultspawnpos.p).Magnitude
+			--	if dist < 1000 then
+			--		humanoid.RootPart.CFrame=defaultspawnpos
+			--	end
+			--end
 			for Index,Case:Instance in pairs(workspace:GetChildren()) do
 				if not inproccess and casesnames[Case.Name] and Case:IsA("Instance") and (Case:FindFirstChild("RootPart")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment")) and (Case:FindFirstChild("RootPart"):FindFirstChild("ProximityAttachment"):FindFirstChildOfClass("ProximityPrompt")) then
                     inproccess =true
@@ -371,10 +406,10 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 			if inproccess and not inproccess_attack then
 				ResultPosition = currentMoveTo.CFrame * CFrame.new(3.5,2.1,3.5)
 			elseif inproccess_attack and not inproccess then
+				--+Vector3.new(0,5.5,5.5)
 				ResultPosition =  CFrame.lookAt(currentMoveTo.Position+Vector3.new(0,5.5,5.5),currentMoveTo.CFrame.p) 
 			end
             humanoid.RootPart.CFrame = ResultPosition
-
 			if inproccess_attack and currentMoveTo~=nil then
 				ATTACK()
 			end
@@ -404,13 +439,13 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
                             currentMoveTo = nil
                             another_connection:Disconnect()
                             another_connection=nil
-                            print("hum",npcHumanoid)
+                           -- print("hum",npcHumanoid)
                         end
                     end)
                 else
                     inproccess_attack = false
                     currentMoveTo = nil
-                    print("hum",npcHumanoid)
+                    --print("hum",npcHumanoid)
                 end
 
             end
