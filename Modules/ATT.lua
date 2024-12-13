@@ -343,21 +343,22 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
                 end
             end
         end
-		if IsRagdolled then 
+		if IsRagdolled and Enabled then 
 			humanoid.RootPart.CFrame = defaultspawnpos*CFrame.new(0,100,0)
-			if humanoid.Parent~=nil then
+			--[[if humanoid.Parent~=nil then
 				for i,v in pairs(humanoid.Parent:GetChildren()) do
 					if v.Parent == humanoid.Parent and humanoid:GetLimb(v)~=Enum.Limb.Unknown then
 						v.CFrame = humanoid.RootPart.CFrame * OffesetsForLimbs[humanoid:GetLimb(v)]
 					end
 				end
-			end
+			end]]
 
 			return 
 		end
         --print(workspace.NPCS ~= nil and workspace.NPCS:FindFirstChild("Black Market") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment") ~= nil and workspace.NPCS:FindFirstChild("Black Market"):FindFirstChild("HumanoidRootPart"):FindFirstChild("Attachment"):FindFirstChild("Interaction") ~= nil)
         if BlackMarketProgress then return end
         if Enabled then
+			Player.PlayerGui:WaitForChild("UI"):WaitForChild("Gameplay"):WaitForChild("ChestRoll").Visible = false
 			--if humanoid.RootPart~=nil then
 			--	local dist = (humanoid.RootPart.Position-defaultspawnpos.p).Magnitude
 			--	if dist < 1000 then
@@ -374,10 +375,9 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
 
                     task.spawn(function()
 
-                        
+						humanoid.RootPart.CFrame = root.CFrame
                         currentMoveTo=root
-    
-                        --humanoid.RootPart.CFrame = root.CFrame * CFrame.new(promt.MaxActivationDistance*5,promt.MaxActivationDistance*5,promt.MaxActivationDistance*5)
+                        
                         task.wait(1)
                         promt:InputHoldBegin()
                         promt.PromptHidden:Wait()
@@ -392,8 +392,9 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
         end
 
         if (inproccess or inproccess_attack) and Enabled and (currentMoveTo) then
-
-           if not inproccess and inproccess_attack then
+			humanoid.RootPart.AssemblyLinearVelocity = Vector3.new()
+			humanoid.RootPart.AssemblyAngularVelocity = Vector3.new()
+			if not inproccess and inproccess_attack then
                 humanoid.PlatformStand = true
                 humanoid.RootPart.Anchored = true
            elseif inproccess and not inproccess_attack then
@@ -401,13 +402,12 @@ newmaid.RenderStepped = RunService.RenderStepped:Connect(function(DT)
             humanoid.RootPart.Anchored = false
            end
 
-           
 			local ResultPosition =currentMoveTo.CFrame
 			if inproccess and not inproccess_attack then
 				ResultPosition = currentMoveTo.CFrame * CFrame.new(3.5,2.1,3.5)
 			elseif inproccess_attack and not inproccess then
 				--+Vector3.new(0,5.5,5.5)
-				ResultPosition =  CFrame.lookAt(currentMoveTo.Position+Vector3.new(0,5.5,5.5),currentMoveTo.CFrame.p) 
+				ResultPosition = CFrame.lookAt((currentMoveTo.CFrame*CFrame.new(0,3.5,7.5)).p,currentMoveTo.CFrame.p) 
 			end
             humanoid.RootPart.CFrame = ResultPosition
 			if inproccess_attack and currentMoveTo~=nil then
