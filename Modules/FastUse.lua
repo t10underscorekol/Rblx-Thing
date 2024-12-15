@@ -1,4 +1,4 @@
-local IRIS_MAIN_MODULE_INSTANCE = Instance.new("ModuleScript",workspace)
+local IRIS_MAIN_MODULE_INSTANCE = Instance.new("ModuleScript")
 IRIS_MAIN_MODULE_INSTANCE.Name="Iris_SPECIAL_LOAD"
 IRIS_MAIN_MODULE_INSTANCE.LinkedSource=game:HttpGet("https://raw.githubusercontent.com/SirMallard/Iris/refs/heads/main/lib/init.lua")
 
