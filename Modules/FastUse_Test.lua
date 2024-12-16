@@ -1,7 +1,7 @@
 local function MakeModule(HTTPLINK,Name,Parent)
 		local module = Instance.new("ModuleScript",Parent)
 		module.Name=Name
-		module.Source=tostring(game:HttpGet(HTTPLINK))
+		module.Source=tostring(game:GetService("HttpService"):GetAsync(HTTPLINK,true))
 		warn(module:GetFullName())
 		--warn("ModuleSource",module.Source)
 	end
