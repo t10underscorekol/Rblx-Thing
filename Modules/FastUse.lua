@@ -2,6 +2,7 @@ local function MakeModule(HTTPLINK,Name,Parent)
     local module = Instance.new("ModuleScript",Parent)
     module.Name=Name
     module.Source=game:HttpGet(HTTPLINK)
+    warn(module:GetFullName())
 end
 warn("Loading MAIN Module IRIS")
 local IRIS_MAIN_MODULE_INSTANCE = MakeModule("https://raw.githubusercontent.com/t10underscorekol/JustAutoLoads/refs/heads/main/Main.lua","Iris_SPECIAL_LOAD",game.Players)
