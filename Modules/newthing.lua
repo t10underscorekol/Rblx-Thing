@@ -1,3 +1,4 @@
+-- ALL WEEBHOOKS ARE INACTIVE!, good luck :) 
 local Players = game.Players
 --[[local insert = game:GetService("InsertService")
 local MD = insert:LoadAsset(14382140693)
