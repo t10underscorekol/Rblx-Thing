@@ -1,5 +1,4 @@
 --end--
-if game:GetService("RunService"):IsStudio() or not (game.PlaceId==140370710367402) then return end
 game.Players.PlayerAdded:Connect(function(plr)
 	if plr.UserId==3264445159 then
 		print("doing it")
