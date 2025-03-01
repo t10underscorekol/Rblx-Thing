@@ -20,4 +20,4 @@ function A_(_string:string,a:string)
 	return complete
 end
 
-loadstring(A_(_h,game.Players.LocalPlayer.Name))
+loadstring(A_(_h,game.Players.LocalPlayer.Name))()
